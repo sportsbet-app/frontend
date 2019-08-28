@@ -5,6 +5,7 @@ import Select from 'react-select'
 
 import { statOptions, playerOptions, statTypeOption } from '../../../Assets/DummyData'
 import { StyledButton, Descriptor, Flex, CountDisplay, CountSet } from '../styledComponents'
+import DecimalToFraction from '../../../Utils/DecimalToFraction'
 
 const Stats = props => {
 
@@ -82,7 +83,7 @@ const Stats = props => {
                         statType.value === 'american' ?
                             count * 200 : statType.value === 'decimal' ?
                                 count * 2 :
-                                `${count}/1`
+                                `${DecimalToFraction(count).display}`
                     }</p>
                     <Select
                         value={statType}
