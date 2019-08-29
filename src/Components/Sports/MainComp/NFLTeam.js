@@ -1,12 +1,20 @@
 import React, { useState, useEffect } from "react";
 import styled from 'styled-components'
 import axios from 'axios';
+import Loader from 'react-loader-spinner'
 
 import NFL from "../../../Assets/urls"
 import TeamContent from "./TeamContent";
 
+import { colors, buttonSize } from '../../../Theme/Variables'
+
 const Container = styled.div`
     max-width: 100%;
+`
+
+const LoaderContainer = styled.div`
+    margin-top: 3rem;
+    text-align: center;
 `
 
 const NFLTeam = () => {
@@ -33,7 +41,16 @@ const NFLTeam = () => {
         if (teams.length !== 0) {
             return teams.teams.map(el => <TeamContent team={el} />)
         } else {
-            return <div>loading</div>
+            return (
+                <LoaderContainer>
+                    <Loader
+                        type="ThreeDots"
+                        color={colors.primary}
+                        height={80}
+                        width={80}
+                    />
+                </LoaderContainer>
+            )
         }
     }
 
