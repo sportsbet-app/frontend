@@ -29,8 +29,9 @@ const Sidebar = styled.div`
   margin: 0 .5rem;
 `
 const Content = styled.div`
-  background: lightGrey;
-  padding: 3rem 1rem;
+  background: ${colors.secondary};
+  padding: 0 0 .8 0;
+  ${'' /* border: gpx solid darkGrey; */}
   display:flex;
   flex-direction: column;
   flex-grow: 2;
@@ -44,9 +45,9 @@ const BetBuilder = styled.div`
   justify-content: center;
 `
 
-const Container = styled.div`
-  width: 104%;
-  margin: -35px -12.5px 0px;
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
 `
 
 const Teams = styled.div`
@@ -54,15 +55,16 @@ const Teams = styled.div`
 `
 
 const Button = styled.button`
-  width: 33%;
-  background: ${props => props.active ? colors.lightGrey : colors.secondary};
+  min-width: 33.33%;
+  background: ${props => props.active ? colors.secondary : colors.darkGrey};
   padding: ${props => props.active ? buttonSize.active.large : buttonSize.large};
   outline: none;
   cursor: ${props => props.active && 'default'};
+  border-left: 1px solid ${colors.secondary};
   
   &:hover {
     transition: .3s;
-    background: ${props => !props.active && colors.lightGrey}
+    background: ${props => !props.active && colors.primary}
   }
 `
 
@@ -72,7 +74,7 @@ const PageContent = (props) => {
 
     <PageContentContainer>
       <Content>
-        <Container>
+        <ButtonContainer>
           <Button
             active={type === 1}
             onClick={() => setType(1)}
@@ -85,7 +87,7 @@ const PageContent = (props) => {
             active={type === 3}
             onClick={() => setType(3)}
           >Misc</Button>
-        </Container>
+        </ButtonContainer>
 
         <Teams>
           {(() => {
