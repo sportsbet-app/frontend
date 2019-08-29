@@ -97,7 +97,7 @@ const TeamContent = (props) => {
         // <div>
         //     <div>
         //         <div >
-        //             <TeamLogo src={props.team.strTeamLogo} alt="" />
+        //             <TeamLogo src={props.team.strTeamBadge} alt="" />
         //         </div>
         //         {/* {props.team.strTeam} */}
         //     </div>
@@ -110,7 +110,7 @@ const TeamContent = (props) => {
             <GameTeamColumn>
                 <Team1>
                     <LogoContainer>
-                        <TeamLogo src={props.team.first.strTeamLogo} title={`${props.team.first.strTeam}`} alt={`${props.team.first.strTeam}`} />
+                        <TeamLogo src={props.team.first.strTeamBadge} title={`${props.team.first.strTeam}`} alt={`${props.team.first.strTeam}`} />
                     </LogoContainer>
                     <TeamBet>
                         <ButtonRow>
@@ -124,7 +124,7 @@ const TeamContent = (props) => {
 
                 <Team2>
                     <LogoContainer>
-                        <TeamLogo src={props.team.second.strTeamLogo} title={`${props.team.second.strTeam}`} alt={`${props.team.second.strTeam}`} />
+                        <TeamLogo src={props.team.second.strTeamBadge} title={`${props.team.second.strTeam}`} alt={`${props.team.second.strTeam}`} />
                     </LogoContainer>
                     <TeamBet>
                         <p>This is some content</p>

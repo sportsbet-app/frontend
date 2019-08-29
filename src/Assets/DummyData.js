@@ -7,24 +7,11 @@ const statOptions = [
     { value: 'penalties', label: 'Penalties' },
 ]
 
-// const playerOptions = [
-//     { value: "Aaron Donald", label: "Aaron Donald" },
-//     { value: 'Emmit Smith', label: 'Emmit Smith' },
-//     { value: 'Joe Montana', label: 'Joe Montana' },
-//     { value: 'Terry Bradshaw', label: 'Terry Bradshaw' }
-// ]
-
 const statTypeOption = [
     { value: 'american', label: 'American' },
     { value: 'decimal', label: 'Decimal' },
     { value: 'fraction', label: 'Fraction' }
 ]
-
-export {
-    statOptions,
-    playerOptions,
-    statTypeOption
-}
 
 const playerOptions = [
     "Aaron Donald",
@@ -101,7 +88,7 @@ const playerOptions = [
     "Stefon Diggs",
     "Leighton Vander - Esch",
     "Gerald McCoy",
-    " Robert Woods",
+    "Robert Woods",
     "Kirk Cousins",
     "Geno Atkins",
     "Mark Ingram",
@@ -125,4 +112,10 @@ const playerOptions = [
     "Tyler Lockett",
     "Derrick Henry",
     "Eric Weddle",
-]
+].sort()
+
+export {
+    statOptions,
+    playerOptions,
+    statTypeOption
+}

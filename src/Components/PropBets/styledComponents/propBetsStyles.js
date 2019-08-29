@@ -42,6 +42,8 @@ const PropBetsContainer = styled.div`
     padding: 1.5rem;
     cursor: default;
     min-width: 420px;
+    align-self: flex-start;
+    margin-top: -32.5px;
 `
 
 const PropBetsHeader = styled.div`
