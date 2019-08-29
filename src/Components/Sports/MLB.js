@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import UGameCard from '../Cards/UpcomingGameCard'
 import Ticon from '../../Assets/Ticon.png'
 import axios from "axios";
+import Loader from 'react-loader-spinner'
 
 import styled from 'styled-components'
 import { colors, buttonSize } from '../../Theme/Variables'
@@ -70,7 +71,14 @@ const MLB = () => {
             }
         } else {
 
-            return <div>loading</div>
+            return (
+                <Loader
+                    type="ThreeDots"
+                    color={colors.primary}
+                    height={80}
+                    width={80}
+                />
+            )
         }
     }
 
@@ -80,7 +88,7 @@ const MLB = () => {
             <Card>
                 {toggle()}
             </Card>
-            <button onClick={() => setViewAll(!viewAll)}>View {expand()} Games</button>
+            {/* <button onClick={() => setViewAll(!viewAll)}>View {expand()} Games</button> */}
         </Container>
 
     )

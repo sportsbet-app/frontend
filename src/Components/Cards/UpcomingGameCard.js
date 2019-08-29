@@ -2,12 +2,17 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import Ticon from "../../Assets/Ticon.png"
 
+import nflimg from '../../Assets/nflColor.jpg'
+import nflColorImg from '../../Assets/nflColor2.jpg'
+
 import styled from 'styled-components'
 import { colors, buttonSize } from '../../Theme/Variables'
 
 const Card = styled.div`
-    width: 30%;
-    background: ${colors.secondary};
+    width: 28%;
+    border: 2px solid ${colors.darkGrey};
+    background-image: url(${nflColorImg});
+    background-size: cover;
     margin-bottom: 40px;
 `
 
@@ -24,10 +29,13 @@ const CardHeader = styled.div`
 
 const CardContent = styled.div`
   padding: 1.2rem .5rem;
+
   .cardContentRow {
     display: flex;
     justify-content: space-around;
     margin: 5px 2px;
+    padding: .5rem;
+    font-weight: bold;
   }
 `
 
@@ -54,14 +62,14 @@ const UGameCard = (props) => {
 
       <CardContent>
         <div className='cardContentRow'>
-          <Button primary small>PLACE BETS</Button>
-          <Button primary small>PLACE BETS</Button>
-          <Button primary small>PLACE BETS</Button>
+          <Button primary medium>+211</Button>
+          <Button primary medium>+211</Button>
+          <Button primary medium>+211</Button>
         </div>
         <div className='cardContentRow'>
-          <Button primary small>PLACE BETS</Button>
-          <Button primary small>PLACE BETS</Button>
-          <Button primary small>PLACE BETS</Button>
+          <Button primary medium>+211</Button>
+          <Button primary medium>+211</Button>
+          <Button primary medium>+211</Button>
         </div>
       </CardContent>
     </Card>

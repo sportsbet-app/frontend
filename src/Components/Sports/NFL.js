@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import UGameCard from '../Cards/UpcomingGameCard'
 import Ticon from '../../Assets/Ticon.png'
 import axios from "axios";
+import Loader from 'react-loader-spinner'
 
 import styled from 'styled-components'
 import { colors, buttonSize } from '../../Theme/Variables'
@@ -19,6 +20,13 @@ const Card = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-around;
+`
+
+const Button = styled.button`
+    background: ${props => props.primary ? `${colors.primary}` : `${colors.primary}`};
+    padding: ${props =>
+        props.small ? `${buttonSize.small}` : `${buttonSize.medium}`
+    }
 `
 
 const NFL = props => {
@@ -70,7 +78,14 @@ const NFL = props => {
             }
         } else {
 
-            return <div>loading</div>
+            return (
+                <Loader
+                    type="ThreeDots"
+                    color={colors.primary}
+                    height={80}
+                    width={80}
+                />
+            )
         }
     }
 
@@ -80,7 +95,7 @@ const NFL = props => {
             <Card>
                 {toggle()}
             </Card>
-            <button onClick={() => setViewAll(!viewAll)}>View {expand()} Games</button>
+            <Button primary onClick={() => setViewAll(!viewAll)}>View {expand()} Games</Button>
         </Container>
 
     )
