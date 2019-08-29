@@ -52,8 +52,6 @@ const Button = styled.button`
         transition-timing-function: ease-in-out;
         transition: 0.4s; 
     }
-
-  
 `
 
 const UGameCard = (props) => {

@@ -90,15 +90,9 @@ const Button = styled.button`
 
     :hover {
         background: ${props => props.primary ? `${colors.secondary}` : `${colors.primary}`};
-        -webkit-box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.42);
--moz-box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.42);
-box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.42);
+        box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.42);
         transition-timing-function: ease-in-out;
         transition: 0.4s; 
-    }
-    
-    ${'' /* ${props =>
-        props.tiny ? `${buttonSize.tiny}` : `${buttonSize.small}` */}
     }
 `
 
@@ -106,14 +100,6 @@ const TeamContent = (props) => {
     //This component Takes in props from to display the information for the teams.
 
     return (
-        // <div>
-        //     <div>
-        //         <div >
-        //             <TeamLogo src={props.team.strTeamBadge} alt="" />
-        //         </div>
-        //         {/* {props.team.strTeam} */}
-        //     </div>
-        // </div>
 
         <GameRow>
             <GameInfo>
