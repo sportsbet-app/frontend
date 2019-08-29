@@ -9,8 +9,6 @@ import NFLTeam from './Sports/MainComp/NFLTeam';
 import NFLPlayers from './Sports/MainComp/NFLPlayers';
 import NFLMisc from './Sports/MainComp/NFLMisc';
 
-
-
 const PageContentContainer = styled.div`
   max-width: 1500px;
   margin: 0 auto;
