@@ -19,7 +19,7 @@ const CardHolder = styled.div`
     max-width: 100%;
     ${'' /* min-height: 36vh; */}
     ${'' /* margin-top: 22px; */}
-    background: linear-gradient(to bottom, #474F54, #1F262B);
+    background: linear-gradient(to bottom, #445660, #3d4a52);
     color: #fff;
 `
 
