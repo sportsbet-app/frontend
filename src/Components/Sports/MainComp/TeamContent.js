@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 import styled from 'styled-components'
 import { colors, buttonSize } from '../../../Theme/Variables'
@@ -96,14 +98,31 @@ const Button = styled.button`
     }
 `
 
+const StarContainer = styled.div`
+    color: ${props => props.liked ? colors.primary : "#bdbdbd"};
+    text-align: center;
+    font-size: 1.4rem;
+    padding: 2rem;
+
+    :hover {
+        cursor: pointer;
+    }
+`
+
+const star = <FontAwesomeIcon icon={faStar} />
+
+
 const TeamContent = (props) => {
     //This component Takes in props from to display the information for the teams.
+
+    const [liked, setLiked] = useState(false)
 
     return (
 
         <GameRow>
             <GameInfo>
                 <h3>Game Info Goes Here</h3>
+                <StarContainer liked={liked} onClick={() => setLiked(!liked)}>{star}</StarContainer>
             </GameInfo>
             <GameTeamColumn>
                 <Team1>
@@ -141,7 +160,7 @@ const TeamContent = (props) => {
                     </TeamBet>
                 </Team2>
             </GameTeamColumn>
-        </GameRow>
+        </GameRow >
     );
 }
 
