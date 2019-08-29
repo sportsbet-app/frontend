@@ -12,17 +12,18 @@ const Grouping = styled.div`
 
 const TeamLogo = styled.img`
     max-width: 88px;
+    padding: .5rem;
 `
 
 const GameRow = styled.div`
     display: flex;
-    max-width: 98%;
+    max-width: 96%;
     ${'' /* border: 1px solid ${colors.lightGrey}; */}
     margin: 0 auto;
-    margin-top: 1rem;
+    margin-top: 1.2rem;
     background: #fff;
     min-height: 15vh;
-    border: 2px solid ${colors.lightGrey};
+    ${'' /* border: 2px solid ${colors.primary}; */}
 `
 
 const GameInfo = styled.div`
@@ -73,9 +74,21 @@ const TeamBet = styled.div`
     min-width: 80%;
 `
 
+const ButtonRow = styled.div`
+width: 100%;
+        display: flex;
+    justify-content: space-around;
+    margin: 5px 2px;
+    padding: .5rem;
+    font-weight: bold;
+`
 
-
-
+const Button = styled.button`
+    background: ${props => props.primary ? `${colors.primary}` : `${colors.primary}`};
+    padding: ${props =>
+        props.small ? `${buttonSize.small}` : `${buttonSize.medium}`
+    }
+`
 
 const TeamContent = (props) => {
     //This component Takes in props from to display the information for the teams.
@@ -100,7 +113,11 @@ const TeamContent = (props) => {
                         <TeamLogo src={props.team.first.strTeamLogo} title={`${props.team.first.strTeam}`} alt={`${props.team.first.strTeam}`} />
                     </LogoContainer>
                     <TeamBet>
-                        <p>This is some content</p>
+                        <ButtonRow>
+                            <Button medium>-12</Button>
+                            <Button medium>420</Button>
+                            <Button medium>-123</Button>
+                        </ButtonRow>
                     </TeamBet>
                 </Team1>
 

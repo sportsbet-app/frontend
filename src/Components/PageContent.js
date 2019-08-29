@@ -30,7 +30,7 @@ const Sidebar = styled.div`
 `
 const Content = styled.div`
   background: ${colors.secondary};
-  padding: 0 0 .8 0;
+  padding: 0 0 1.4rem 0;
   ${'' /* border: gpx solid darkGrey; */}
   display:flex;
   flex-direction: column;

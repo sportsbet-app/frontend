@@ -10,7 +10,6 @@ import { colors, buttonSize } from '../../Theme/Variables'
 
 const Card = styled.div`
     width: 28%;
-    border: 2px solid ${colors.darkGrey};
     background-image: url(${nflColorImg});
     background-size: cover;
     margin-bottom: 40px;
@@ -20,7 +19,7 @@ const CardHeader = styled.div`
   display: flex;
   justify-content: space-between;
   text-align: center;
-  background: ${colors.darkGrey};
+  background: ${colors.secondary};
   padding: .5rem;
   h3 {
     font-size: .8rem;
