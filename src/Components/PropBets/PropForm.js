@@ -13,7 +13,7 @@ import { Stats, HeadToHead, Trios } from './Views'
 import InfoModal from './InfoModal'
 
 
-const PropBets = props => {
+const PropForm = props => {
 
     // console.log(props)
     console.log(props.confirmedBets)
@@ -83,4 +83,4 @@ const PropBets = props => {
 
 const mapStateToProps = state => ({ ...state })
 
-export default connect(mapStateToProps, { confirmBet, teamData })(PropBets)
+export default connect(mapStateToProps, { confirmBet, teamData })(PropForm)
