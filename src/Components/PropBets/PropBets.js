@@ -38,7 +38,7 @@ const PropBets = props => {
                 onMouseOver={() => setHover(true)}
                 onMouseOut={() => setHover(false)}
                 active={type === 2}
-            >Betslip<BetCount hover={hover}>{slipCount}</BetCount></View>
+            >Betslip<BetCount active={type === 2} hover={hover}>{slipCount}</BetCount></View>
         </PropBetsHeader>
 
         <Flex column>

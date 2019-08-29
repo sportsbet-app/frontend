@@ -1,16 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import axios from "axios";
+import React, { useState } from 'react'
+import { connect } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 import styled from 'styled-components'
 import { colors, buttonSize } from '../../../Theme/Variables'
-
-const Grouping = styled.div`
-    max-width: 50%;
-    margin: 50px 0;
-    border: 5px solid red;
-`
+import { makeFavorite, removeFavorite } from '../../../Actions'
 
 const TeamLogo = styled.img`
     max-width: 80px;
@@ -112,7 +107,7 @@ const StarContainer = styled.div`
 const star = <FontAwesomeIcon icon={faStar} />
 
 
-const TeamContent = (props) => {
+const TeamContent = props => {
     //This component Takes in props from to display the information for the teams.
 
     const [liked, setLiked] = useState(false)
@@ -122,7 +117,10 @@ const TeamContent = (props) => {
         <GameRow>
             <GameInfo>
                 <h3>Game Info Goes Here</h3>
-                <StarContainer liked={liked} onClick={() => setLiked(!liked)}>{star}</StarContainer>
+                <StarContainer liked={liked} onClick={() => {
+                    setLiked(!liked)
+                    !liked ? props.makeFavorite(props.team) : props.removeFavorite(props.team)
+                }}>{star}</StarContainer>
             </GameInfo>
             <GameTeamColumn>
                 <Team1>
@@ -160,8 +158,11 @@ const TeamContent = (props) => {
                     </TeamBet>
                 </Team2>
             </GameTeamColumn>
-        </GameRow >
+        </GameRow>
+
     );
 }
 
-export default TeamContent;
+const mapStateToProps = state => ({ ...state })
+
+export default connect(mapStateToProps, { makeFavorite, removeFavorite })(TeamContent);

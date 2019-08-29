@@ -5,14 +5,16 @@ import axios from 'axios'
 import urls from '../Assets/urls'
 const { CFL, NBA, NCAA, NFL, MLB, players } = urls
 
-export const FETCH_DATA_START = 'FETCH_DATA_START'
-export const FETCH_DATA_SUCCESS = 'FETCH_DATA_SUCCESS'
-export const FETCH_DATA_FAILURE = 'FETCH_DATA_FAILURE'
-export const TEAM_DATA_SUCCESS = 'TEAM_DATA_SUCCESS'
-export const TEAM_DATA_FAILURE = 'TEAM_DATA_FAILURE'
-export const CONFIRM_BET = 'CONFIRM_BET'
-export const DELETE_BET = 'DELETE_BET'
-export const TEAM_SUCCESS = 'TEAM-SUCESS'
+export const FETCH_DATA_START = 'FETCH_DATA_START',
+  FETCH_DATA_SUCCESS = 'FETCH_DATA_SUCCESS',
+  FETCH_DATA_FAILURE = 'FETCH_DATA_FAILURE',
+  TEAM_DATA_SUCCESS = 'TEAM_DATA_SUCCESS',
+  TEAM_DATA_FAILURE = 'TEAM_DATA_FAILURE',
+  CONFIRM_BET = 'CONFIRM_BET',
+  DELETE_BET = 'DELETE_BET',
+  TEAM_SUCCESS = 'TEAM-SUCESS',
+  MAKE_FAVORITE = 'MAKE_FAVORITE',
+  REMOVE_FAVORITE = 'REMOVE_FAVORITE'
 
 export const getData = sport => dispatch => {
 
@@ -65,3 +67,7 @@ export const confirmBet = bet => ({ type: CONFIRM_BET, payload: bet })
 
 //function to delete selected bet by ID through action dispatch
 export const deleteBet = (bet, id) => ({ type: DELETE_BET, payload: { bet, id } })
+
+export const makeFavorite = game => ({ type: MAKE_FAVORITE, payload: game })
+
+export const removeFavorite = game => ({ type: REMOVE_FAVORITE, payload: game })

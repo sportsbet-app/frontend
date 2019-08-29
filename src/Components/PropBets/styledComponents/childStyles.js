@@ -40,7 +40,7 @@ const Descriptor = styled.h3`
 
 const BetCount = styled.sup`
     font-size: 10px;
-    color: ${props => props.hover ? colors.secondary : colors.primary};
+    color: ${props => props.hover && !props.active ? colors.secondary : colors.primary};
 `
 
 export {
