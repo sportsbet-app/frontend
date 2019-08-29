@@ -20,11 +20,7 @@ const statTypeOption = [
     { value: 'fraction', label: 'Fraction' }
 ]
 
-export {
-    statOptions,
-    playerOptions,
-    statTypeOption
-}
+
 
 const playerOptions = [
     {name: "Aaron Donald", position:"DT", team:"Rams"},
@@ -126,3 +122,9 @@ const playerOptions = [
     {name: "Derrick Henry", position:"RB", team:"Titans"},
     {name: "Eric Weddle", position:"S", team:"Rams"},
 ]
+
+export {
+    statOptions,
+    playerOptions,
+    statTypeOption
+}

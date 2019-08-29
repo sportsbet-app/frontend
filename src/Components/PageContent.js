@@ -52,6 +52,8 @@ const ButtonContainer = styled.div`
 
 const Teams = styled.div`
   width: 100%;
+  max-height:795px;
+  overflow-y:scroll;
 `
 
 const Button = styled.button`

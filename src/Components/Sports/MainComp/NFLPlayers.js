@@ -1,5 +1,7 @@
 import React from "react";
 import Loader from 'react-loader-spinner'
+import {playerOptions} from "../../../../src/Assets/DummyData";
+import PlayerCard from "./playercard";
 
 import styled from 'styled-components'
 import { colors, buttonSize } from '../../../Theme/Variables'
@@ -14,17 +16,29 @@ const LoaderContainer = styled.div`
 `
 
 const NFLPlayers = () => {
+    if(playerOptions.length === 0) {
+        return (
+            <LoaderContainer>
+                <Loader
+                    type="ThreeDots"
+                    color={colors.primary}
+                    height={80}
+                    width={80}
+                />
+            </LoaderContainer>
+    )} else {
+        return (
+            <div>
+                <div style={{display:"flex", justifyContent:"space-evenly"}}>
+                <h3>Player</h3><h3>Team</h3><h3>Position</h3>
+                </div>
+                <div>
+                    {playerOptions.map(el=> <PlayerCard player={el}/>)}
+                </div>
+            </div>
+        )
 
-    return (
-        <LoaderContainer>
-            <Loader
-                type="ThreeDots"
-                color={colors.primary}
-                height={80}
-                width={80}
-            />
-        </LoaderContainer>
-    )
+    }
 
 }
 
