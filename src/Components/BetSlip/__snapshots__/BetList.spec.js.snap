@@ -1,69 +1,83 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<betList /> matches snapshot 1`] = `
-<betList
-  bet={
-    Array [
-      Object {
-        "count": 3,
-        "playerCount": 1,
-        "playerSelectedOption": Object {
-          "value": "zero",
-        },
-        "prop": "testing",
-        "selectedOption": Object {
-          "value": "0",
-        },
-      },
-      Object {
-        "count": 3,
-        "playerCount": 2,
-        "playerOneSelection": Object {
-          "value": "one",
-        },
-        "playerTwoSelection": Object {
-          "value": "1",
-        },
-        "prop": "testing",
-        "selectedOption": Object {
-          "value": "won",
-        },
-      },
-      Object {
-        "count": 3,
-        "playerCount": 3,
-        "playerOneSelection": Object {
-          "value": "two",
-        },
-        "playerThreeSelection": Object {
-          "value": "too",
-        },
-        "playerTwoSelection": Object {
-          "value": "2",
-        },
-        "prop": "testing",
-        "selectedOption": Object {
-          "value": "tu",
-        },
-      },
-      Object {
-        "count": 3,
-        "playerCount": 1,
-        "playerOneSelection": Object {
-          "value": "test",
-        },
-        "playerSelectedOption": Object {
-          "value": "test",
-        },
-        "playerThreeSelection": Object {
-          "value": "test",
-        },
-        "playerTwoSelection": Object {
-          "value": "test",
-        },
-        "prop": "testing",
-      },
-    ]
-  }
-/>
+exports[`<BetList /> matches snapshot 1`] = `
+<div>
+  <div>
+    //price value of the selected player
+    <h1>
+       Player : 
+      zero
+    </h1>
+    //run down of the information for the bet. (type of bet, the bet number and the players value )
+    <p>
+       
+      testing
+       : 
+      3
+        
+      0
+    </p>
+    //button to cancel the selected bet
+    <button
+      onClick={[Function]}
+      style={
+        Object {
+          "color": "black",
+        }
+      }
+    >
+       X 
+    </button>
+  </div>
+  <div>
+    <h1>
+       Player 1 : 
+      one
+    </h1>
+    <h1>
+       Player 2 : 
+      1
+    </h1>
+    <p>
+      won
+    </p>
+    <button
+      onClick={[Function]}
+      style={
+        Object {
+          "color": "black",
+        }
+      }
+    >
+       X 
+    </button>
+  </div>
+  <div>
+    <h1>
+       Player 1 : 
+      two
+    </h1>
+    <h1>
+       Player 2 : 
+      2
+    </h1>
+    <h1>
+       Player 3 : 
+      too
+    </h1>
+    <p>
+      tu
+    </p>
+    <button
+      onClick={[Function]}
+      style={
+        Object {
+          "color": "black",
+        }
+      }
+    >
+       X 
+    </button>
+  </div>
+</div>
 `;

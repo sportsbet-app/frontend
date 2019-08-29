@@ -1,10 +1,13 @@
 import React from 'react'
+//import all dependencies needed
 import { render } from '@testing-library/react'
 //import renderer for snapshot
 import renderer from 'react-test-renderer'
+//import the component being tested
+import BetList from './BetList'
+import BET from './Bet'
 
-import betList from './BetList'
-
+//test data to use for the render
 const data = [{
   playerCount: 1,
   playerSelectedOption: { value: 'zero' },
@@ -28,27 +31,18 @@ const data = [{
   selectedOption: { value: 'tu' },
   prop:  'testing',
   count: 3
-},
-{
-  playerCount: 1,
-  playerSelectedOption: { value: 'test' },
-  playerOneSelection: { value: 'test' },
-  playerTwoSelection: { value: 'test' },
-  playerThreeSelection: { value: 'test' },
-  prop:  'testing',
-  count: 3
 }]
 
 //test to check that the app will display when called.
-describe('<betList />', () => {
+describe('<BetList />', () => {
   it('should display', () => {
     //check the render with the test array data 
-    render(<betList bet = {data}/>)
+    render(<BetList bet = {data}/>)
     
   })
   //create a snapshot
   it('matches snapshot', () => {
-  const tree = renderer.create(<betList bet = {data}/>); // generates a DOM tree
+    const tree = renderer.create(<BetList bet = {data}/>); // generates a DOM tree
 
     // snapshots are a JSON representation of the DOM tree
     expect(tree.toJSON()).toMatchSnapshot();

@@ -63,8 +63,8 @@ describe('<Bet />', () => {
     it('displays data consistent with first if statement', () => {
       //set render as getByText
       const { getByText } = render(<BET bet = { data[0] } />);
-      getByText(/testing/i)
-      getByText(/zero/i)
+      expect(getByText(/testing/i))
+      expect(getByText(/zero/i))
     })
     //check if button works
     it('checks that the button can be clicked', () => {
@@ -87,8 +87,8 @@ describe('<Bet />', () => {
     it('displays data consistent with second if statement', () => {
       //set render as getByText
       const { getByText } = render(<BET bet = { data[1] } />);
-      getByText(/won/i)
-      getByText(/one/i)
+      expect(getByText(/won/i))
+      expect(getByText(/one/i))
     })
     //check if button works
     it('checks that the button can be clicked', () => {
@@ -111,8 +111,8 @@ describe('<Bet />', () => {
     it('displays data consistent with first if statement', () => {
       //set render as getByText
       const { getByText } = render(<BET bet = { data[2] } />);
-      getByText(/tu/i)
-      getByText(/two/i)
+      expect(getByText(/tu/i))
+      expect(getByText(/two/i))
     })
     //check if button works
     it('checks that the button can be clicked', () => {
