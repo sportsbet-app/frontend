@@ -1,9 +1,13 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
+import styled from 'styled-components'
 import axios from 'axios';
+
 import NFL from "../../../Assets/urls"
 import TeamContent from "./TeamContent";
 
-
+const Container = styled.div`
+    max-width: 100%;
+`
 
 const NFLTeam = () => {
     const [teams, setTeams] = useState([])
@@ -25,18 +29,18 @@ const NFLTeam = () => {
         console.log(teams)
     }, []);
 
-    const toggle= () => {
-        if (teams.length !== 0 ) {
-            return teams.teams.map(el => <TeamContent team={el}/>)
+    const toggle = () => {
+        if (teams.length !== 0) {
+            return teams.teams.map(el => <TeamContent team={el} />)
         } else {
             return <div>loading</div>
         }
     }
-    
-    return(
-        <div>
+
+    return (
+        <Container>
             {toggle()}
-        </div>
+        </Container>
     )
 
 }
