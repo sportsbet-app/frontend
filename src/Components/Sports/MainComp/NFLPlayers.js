@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { colors, buttonSize } from '../../../Theme/Variables'
 
 import { playerOptions } from '../../../Assets/DummyData'
+import PlayerCard from './PlayerCard'
 
 const Container = styled.div`
     max-width: 100%;
@@ -15,26 +16,23 @@ const LoaderContainer = styled.div`
     text-align: center;
 `
 
-let players = playerOptions.map((player) => {
-    console.log(player)
-    return player
-})
+
 
 const NFLPlayers = () => {
 
     return (
-        <LoaderContainer>
-            <Loader
-                type="ThreeDots"
-                color={colors.primary}
-                height={80}
-                width={80}
-            />
-        </LoaderContainer>
+        // <LoaderContainer>
+        //     <Loader
+        //         type="ThreeDots"
+        //         color={colors.primary}
+        //         height={80}
+        //         width={80}
+        //     />
+        // </LoaderContainer>
 
+        playerOptions.map(player => <PlayerCard player={player} />)
 
     )
-
 }
 
 export default NFLPlayers;
