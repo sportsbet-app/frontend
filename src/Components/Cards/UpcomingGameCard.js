@@ -1,11 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import axios from "axios";
-import Ticon from "../../Assets/Ticon.png"
-
-import nflimg from '../../Assets/nflColor.jpg'
-import nflColorImg from '../../Assets/nflColor2.jpg'
-
+import React from 'react';
 import styled from 'styled-components'
+
+import nflColorImg from '../../Assets/nflColor2.jpg'
 import { colors, buttonSize } from '../../Theme/Variables'
 
 const Card = styled.div`
@@ -39,6 +35,11 @@ const CardContent = styled.div`
   }
 `
 
+const Badge = styled.img`
+  max-width: 50px;
+  margin: 0 auto;
+`
+
 const Button = styled.button`
     background: ${props => props.primary ? `${colors.primary}` : `${colors.primary}`};
     padding: ${props =>
@@ -49,15 +50,25 @@ const Button = styled.button`
 const UGameCard = (props) => {
   //This component Takes in props from to display the information for the upcoming games.
 
+  console.log(props.gameInfo)
+
   return (
     <Card>
       <CardHeader>
-        <img src={props.gameInfo.imageone} alt="" />
+        <Badge
+          src={props.gameInfo.first.strTeamBadge}
+          title={`${props.gameInfo.first.strTeam}`}
+          alt={`${props.gameInfo.first.strTeam}`}
+        />
         <div>
           <h3>VERSUS</h3>
           <h3>{props.gameInfo.date} | {props.gameInfo.time}</h3>
         </div>
-        <img src={props.gameInfo.imagetwo} alt="" />
+        <Badge
+          src={props.gameInfo.second.strTeamBadge}
+          title={`${props.gameInfo.second.strTeam}`}
+          alt={`${props.gameInfo.second.strTeam}`}
+        />
       </CardHeader>
 
       <CardContent>

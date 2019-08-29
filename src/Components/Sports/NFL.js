@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import UGameCard from '../Cards/UpcomingGameCard'
-import Ticon from '../../Assets/Ticon.png'
-import axios from "axios";
 import Loader from 'react-loader-spinner'
+import { connect } from 'react-redux'
 
 import styled from 'styled-components'
 import { colors, buttonSize } from '../../Theme/Variables'
-import { set } from 'es-cookie';
 
 const Container = styled.div`
     width: 100%;
@@ -31,74 +29,33 @@ const Button = styled.button`
 
 const NFL = props => {
 
-
-    const [gameInfo, setGameInfo] = useState([]);
-    const [viewAll, setViewAll] = useState(false);
-
-
-    //USE THIS TO GET THE GAMES INFO, WHO IS PLAYING AND WHAT TIME THEY ARE PLAYING
-
-    useEffect(() => {
-        const getInfo = () => {
-            axios
-                .get('http://demo0337722.mockable.io/NFL')
-                .then(response => {
-                    setGameInfo(response.data);
-
-                })
-                .catch(error => {
-                    console.error('Server Error', error);
-                });
-        }
-
-        getInfo();
-
-    }, []);
-
-
-
-    // const gameInfo = {nfl: [{imageone: Ticon, imagetwo: Ticon, date:"NOV 2", time: "7:25 PST"}, {imageone: Ticon, imagetwo: Ticon, date:"NOV 2", time: "7:25 PST"}, {imageone: Ticon, imagetwo: Ticon, date:"NOV 2", time: "7:25 PST"}],
-    //                   mlb: [], nba: [], ncaa: [], cfl: []};
-    const expand = () => {
-        if (viewAll) {
-            return "Less"
-        } else {
-            return "ALL"
-        }
-    }
-
-    const toggle = () => {
-        if (gameInfo.length !== 0) {
-            if (viewAll) {
-
-                return (gameInfo.nfl.map(el => <UGameCard gameInfo={el} />))
-            } else {
-
-                return (gameInfo.nfl.slice(0, 3).map(el => <UGameCard gameInfo={el} />));
-            }
-        } else {
-
-            return (
-                <Loader
-                    type="ThreeDots"
-                    color={colors.primary}
-                    height={80}
-                    width={80}
-                />
-            )
-        }
-    }
+    const [viewAll, setViewAll] = useState(false)
 
     return (
 
         <Container>
             <Card>
-                {toggle()}
+                {!props.nfl.length ?
+                    <Loader
+                        type="ThreeDots"
+                        color={colors.primary}
+                        height={80}
+                        width={80}
+                    />
+                    :
+                    viewAll ?
+                        props.nfl.map(el => <UGameCard gameInfo={el} />)
+                        :
+                        props.nfl.slice(0, 3).map(el => <UGameCard gameInfo={el} />)
+                }
             </Card>
-            <Button primary onClick={() => setViewAll(!viewAll)}>View {expand()} Games</Button>
+            <Button primary onClick={() => setViewAll(!viewAll)}>View {viewAll ? 'Less' : 'All'} Games</Button>
         </Container>
 
     )
 
 }
-export default NFL;
+
+const mapStateToProps = state => ({ nfl: state.nflTeamData })
+
+export default connect(mapStateToProps)(NFL);
