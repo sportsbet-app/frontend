@@ -12,7 +12,7 @@ export const TEAM_DATA_SUCCESS = 'TEAM_DATA_SUCCESS'
 export const TEAM_DATA_FAILURE = 'TEAM_DATA_FAILURE'
 export const CONFIRM_BET = 'CONFIRM_BET'
 export const DELETE_BET = 'DELETE_BET'
-export const TEAM_SUCCESS = 'TEAM-SUCESS'
+export const TEAM_SUCCESS = 'TEAM-SUCCESS'
 
 export const getData = sport => dispatch => {
 
@@ -29,8 +29,10 @@ export const getData = sport => dispatch => {
 
 }
 
+//action to get specified sports data
 export const teamData = _ => dispatch => {
 
+  //maybe add a switch case for the different sports to see which sport is asked for in the  instance this is called
   axios
     .get(NFL)
     .then(res => {
@@ -43,8 +45,10 @@ export const teamData = _ => dispatch => {
 
 }
 
+//action to grab a specific player
 export const team = id => dispatch => {
 
+  //use this in the teamData as well?
   axios
     .get(`${players}${id}`)
     .then(res => {
