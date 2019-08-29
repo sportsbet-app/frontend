@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 import styled from 'styled-components'
 import { colors, buttonSize } from '../../Theme/Variables'
+import { makeFavorite, removeFavorite } from '../../Actions'
 
 const FavoritesContainer = styled.div`
     width: 96%;
@@ -17,6 +21,17 @@ const FavoritesContainer = styled.div`
     }
 `
 
+const FavoriteItem = styled.div`
+    display: flex;
+`
+const StarContainer = styled.div`
+color: ${props => props.liked ? colors.primary : "#bdbdbd"};
+`
+
+const GameItem = styled.div`
+
+`
+const star = <FontAwesomeIcon icon={faStar} />
 
 const Favorites = (props) => {
 
@@ -31,15 +46,29 @@ const Favorites = (props) => {
 
     return (
         <FavoritesContainer>
-            {props.favoriteList.map(fav => <Favorite teamOne={fav.first} teamTwo={fav.second} />)}
+            {props.favoriteList.map(fav => <Favorite teamOne={fav.first} teamTwo={fav.second} removeFavorite={props.removeFavorite} />)}
         </FavoritesContainer>
     )
 }
 
 function Favorite(props) {
-    return <p>{`${props.teamOne.strTeam} VERSUS ${props.teamTwo.strTeam}`}</p>
+
+    const [liked, setLiked] = useState(true)
+
+    return (
+        <FavoriteItem>
+            <StarContainer liked={liked} onClick={() => {
+                setLiked(!liked)
+                { props.removeFavorite(props.team) }
+            }}>{star}
+            </StarContainer>
+            <GameItem>
+                {`${props.teamOne.strTeam} VERSUS ${props.teamTwo.strTeam}`}
+            </GameItem>
+        </FavoriteItem>
+    )
 }
 
 const mapStateToProps = state => ({ ...state })
 
-export default connect(mapStateToProps)(Favorites)
+export default connect(mapStateToProps, { makeFavorite, removeFavorite })(Favorites)
