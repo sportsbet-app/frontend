@@ -44,6 +44,7 @@ const data = [{
 //test to check that the app will display when called.
 describe('<Bet />', () => {
   it('should display', () => {
+    //check the render with test data 
     render(<BET bet = {data[0]} />)
     
   })

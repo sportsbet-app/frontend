@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<betList /> matches snapshot 1`] = `
+<betList
+  bet={
+    Array [
+      Object {
+        "count": 3,
+        "playerCount": 1,
+        "playerSelectedOption": Object {
+          "value": "zero",
+        },
+        "prop": "testing",
+        "selectedOption": Object {
+          "value": "0",
+        },
+      },
+      Object {
+        "count": 3,
+        "playerCount": 2,
+        "playerOneSelection": Object {
+          "value": "one",
+        },
+        "playerTwoSelection": Object {
+          "value": "1",
+        },
+        "prop": "testing",
+        "selectedOption": Object {
+          "value": "won",
+        },
+      },
+      Object {
+        "count": 3,
+        "playerCount": 3,
+        "playerOneSelection": Object {
+          "value": "two",
+        },
+        "playerThreeSelection": Object {
+          "value": "too",
+        },
+        "playerTwoSelection": Object {
+          "value": "2",
+        },
+        "prop": "testing",
+        "selectedOption": Object {
+          "value": "tu",
+        },
+      },
+      Object {
+        "count": 3,
+        "playerCount": 1,
+        "playerOneSelection": Object {
+          "value": "test",
+        },
+        "playerSelectedOption": Object {
+          "value": "test",
+        },
+        "playerThreeSelection": Object {
+          "value": "test",
+        },
+        "playerTwoSelection": Object {
+          "value": "test",
+        },
+        "prop": "testing",
+      },
+    ]
+  }
+/>
+`;

@@ -5,6 +5,8 @@ import styled from 'styled-components'
 // const List = styled.div`
 // border: 1px solid red;
 // `
+
+//export betlist function with props passed down from Bet Slip 
 export default function betList(props) {
     return (
         <div>
