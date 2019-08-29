@@ -60,11 +60,11 @@ const CardContainer = props => {
                     <h2>Quick Bets - NFL</h2>
                 </ContainerTitle>
                 <ContainerContent>
-                    <Route exact path="/nfl" component={NFL} />
-                    <Route exact path="/mlb" component={MLB} />
-                    <Route exact path="/ncaa" component={NCAA} />
-                    <Route exact path="/cfl" component={CFL} />
-                    <Route exact path="/nba" component={NBA} />
+                    <Route path="/nfl" component={NFL} />
+                    <Route path="/mlb" component={MLB} />
+                    <Route path="/ncaa" component={NCAA} />
+                    <Route path="/cfl" component={CFL} />
+                    <Route path="/nba" component={NBA} />
                 </ContainerContent>
             </Card>
         </CardHolder>
