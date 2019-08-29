@@ -106,7 +106,6 @@ const StarContainer = styled.div`
 
 const star = <FontAwesomeIcon icon={faStar} />
 
-
 const TeamContent = props => {
     //This component Takes in props from to display the information for the teams.
 
