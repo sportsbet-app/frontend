@@ -11,8 +11,8 @@ const Grouping = styled.div`
 `
 
 const TeamLogo = styled.img`
-    max-width: 88px;
-    padding: .5rem;
+    max-width: 80px;
+    padding: 1.2rem;
 `
 
 const GameRow = styled.div`
@@ -31,8 +31,9 @@ const GameInfo = styled.div`
     flex-direction: column;
     justify-content: center; 
     max-width: 140px;
-    background: ${colors.primary};
-    color: #fff;
+    background: #fff;
+    color: ${colors.darkGrey};
+    border-right: 1px dotted ${colors.darkGrey};
     padding: .5rem;
     text-align: left;
 
@@ -75,18 +76,29 @@ const TeamBet = styled.div`
 `
 
 const ButtonRow = styled.div`
-width: 100%;
-        display: flex;
+    width: 100%;
+    display: flex;
     justify-content: space-around;
     margin: 5px 2px;
-    padding: .5rem;
+    padding: 1.4rem;
     font-weight: bold;
 `
 
 const Button = styled.button`
     background: ${props => props.primary ? `${colors.primary}` : `${colors.primary}`};
-    padding: ${props =>
-        props.small ? `${buttonSize.small}` : `${buttonSize.medium}`
+    padding: 1.2rem 2.6rem;
+
+    :hover {
+        background: ${props => props.primary ? `${colors.secondary}` : `${colors.primary}`};
+        -webkit-box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.42);
+-moz-box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.42);
+box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.42);
+        transition-timing-function: ease-in-out;
+        transition: 0.4s; 
+    }
+    
+    ${'' /* ${props =>
+        props.tiny ? `${buttonSize.tiny}` : `${buttonSize.small}` */}
     }
 `
 
@@ -114,9 +126,9 @@ const TeamContent = (props) => {
                     </LogoContainer>
                     <TeamBet>
                         <ButtonRow>
-                            <Button medium>-12</Button>
-                            <Button medium>420</Button>
-                            <Button medium>-123</Button>
+                            <Button primary>-12</Button>
+                            <Button primary>420</Button>
+                            <Button primary>-123</Button>
                         </ButtonRow>
                     </TeamBet>
                 </Team1>
@@ -127,7 +139,11 @@ const TeamContent = (props) => {
                         <TeamLogo src={props.team.second.strTeamBadge} title={`${props.team.second.strTeam}`} alt={`${props.team.second.strTeam}`} />
                     </LogoContainer>
                     <TeamBet>
-                        <p>This is some content</p>
+                        <ButtonRow>
+                            <Button primary>-12</Button>
+                            <Button primary>420</Button>
+                            <Button primary>-123</Button>
+                        </ButtonRow>
                     </TeamBet>
                 </Team2>
             </GameTeamColumn>
