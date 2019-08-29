@@ -26,16 +26,18 @@ const GameRow = styled.div`
 const GameInfo = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center; 
+    justify-content: space-around; 
     max-width: 140px;
     background: #fff;
     color: ${colors.darkGrey};
     border-right: 1px dotted ${colors.darkGrey};
-    padding: .5rem;
-    text-align: left;
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 1.2rem;
 
     h3 {
-        font-size: .925rem;
+        ${'' /* font-size: .925rem; */}
+        padding: 0;
     }
 
 `
@@ -94,10 +96,14 @@ const Button = styled.button`
 `
 
 const StarContainer = styled.div`
+    ${'' /* max-width: 20px; */}
+    display: flex;
+    align-items: center;
     color: ${props => props.liked ? colors.primary : "#bdbdbd"};
     text-align: center;
     font-size: 1.4rem;
-    padding: 2rem;
+    padding: .3rem;
+    background: ${colors.darkGrey};
 
     :hover {
         cursor: pointer;
@@ -114,12 +120,16 @@ const TeamContent = props => {
     return (
 
         <GameRow>
+            <StarContainer liked={liked} onClick={() => {
+                setLiked(!liked)
+                !liked ? props.makeFavorite(props.team) : props.removeFavorite(props.team)
+            }}>{star}</StarContainer>
             <GameInfo>
-                <h3>Game Info Goes Here</h3>
-                <StarContainer liked={liked} onClick={() => {
-                    setLiked(!liked)
-                    !liked ? props.makeFavorite(props.team) : props.removeFavorite(props.team)
-                }}>{star}</StarContainer>
+                <p><strong>{props.team.first.strTeam}</strong><br />
+                    @<br />
+                    <strong>{props.team.second.strTeam}</strong>
+                </p>
+
             </GameInfo>
             <GameTeamColumn>
                 <Team1>
