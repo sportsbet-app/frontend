@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 import styled from 'styled-components'
 import { colors, buttonSize } from '../../../Theme/Variables'
@@ -11,18 +13,19 @@ const Grouping = styled.div`
 `
 
 const TeamLogo = styled.img`
-    max-width: 88px;
+    max-width: 80px;
+    padding: 1.2rem;
 `
 
 const GameRow = styled.div`
     display: flex;
-    max-width: 98%;
+    max-width: 96%;
     ${'' /* border: 1px solid ${colors.lightGrey}; */}
     margin: 0 auto;
-    margin-top: 1rem;
+    margin-top: 1.2rem;
     background: #fff;
     min-height: 15vh;
-    border: 2px solid ${colors.lightGrey};
+    ${'' /* border: 2px solid ${colors.primary}; */}
 `
 
 const GameInfo = styled.div`
@@ -30,8 +33,9 @@ const GameInfo = styled.div`
     flex-direction: column;
     justify-content: center; 
     max-width: 140px;
-    background: ${colors.primary};
-    color: #fff;
+    background: #fff;
+    color: ${colors.darkGrey};
+    border-right: 1px dotted ${colors.darkGrey};
     padding: .5rem;
     text-align: left;
 
@@ -73,26 +77,52 @@ const TeamBet = styled.div`
     min-width: 80%;
 `
 
+const ButtonRow = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin: 5px 2px;
+    padding: 1.4rem;
+    font-weight: bold;
+`
 
+const Button = styled.button`
+    background: ${props => props.primary ? `${colors.primary}` : `${colors.primary}`};
+    padding: 1.2rem 2.6rem;
 
+    :hover {
+        background: ${props => props.primary ? `${colors.secondary}` : `${colors.primary}`};
+        box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.42);
+        transition-timing-function: ease-in-out;
+        transition: 0.4s; 
+    }
+`
+
+const StarContainer = styled.div`
+    color: ${props => props.liked ? colors.primary : "#bdbdbd"};
+    text-align: center;
+    font-size: 1.4rem;
+    padding: 2rem;
+
+    :hover {
+        cursor: pointer;
+    }
+`
+
+const star = <FontAwesomeIcon icon={faStar} />
 
 
 const TeamContent = (props) => {
     //This component Takes in props from to display the information for the teams.
 
+    const [liked, setLiked] = useState(false)
+
     return (
-        // <div>
-        //     <div>
-        //         <div >
-        //             <TeamLogo src={props.team.strTeamBadge} alt="" />
-        //         </div>
-        //         {/* {props.team.strTeam} */}
-        //     </div>
-        // </div>
 
         <GameRow>
             <GameInfo>
                 <h3>Game Info Goes Here</h3>
+                <StarContainer liked={liked} onClick={() => setLiked(!liked)}>{star}</StarContainer>
             </GameInfo>
             <GameTeamColumn>
                 <Team1>
@@ -104,7 +134,11 @@ const TeamContent = (props) => {
                         />
                     </LogoContainer>
                     <TeamBet>
-                        <p>This is some content</p>
+                        <ButtonRow>
+                            <Button primary>-12</Button>
+                            <Button primary>420</Button>
+                            <Button primary>-123</Button>
+                        </ButtonRow>
                     </TeamBet>
                 </Team1>
 
@@ -118,11 +152,15 @@ const TeamContent = (props) => {
                         />
                     </LogoContainer>
                     <TeamBet>
-                        <p>This is some content</p>
+                        <ButtonRow>
+                            <Button primary>-12</Button>
+                            <Button primary>420</Button>
+                            <Button primary>-123</Button>
+                        </ButtonRow>
                     </TeamBet>
                 </Team2>
             </GameTeamColumn>
-        </GameRow>
+        </GameRow >
     );
 }
 

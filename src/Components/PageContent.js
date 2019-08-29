@@ -30,12 +30,13 @@ const Sidebar = styled.div`
 `
 const Content = styled.div`
   background: ${colors.secondary};
-  padding: 0 0 .8 0;
-  ${'' /* border: gpx solid darkGrey; */}
+  padding: 0 0 1.4rem 0;
   display:flex;
   flex-direction: column;
   flex-grow: 2;
   max-width: 65%;
+  max-height: 800px;
+  overflow: scroll;
 `
 
 const BetBuilder = styled.div`
@@ -48,6 +49,8 @@ const BetBuilder = styled.div`
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  position: sticky;
+  top: 0;
 `
 
 const Teams = styled.div`

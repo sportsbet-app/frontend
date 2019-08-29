@@ -6,7 +6,6 @@ import { colors, buttonSize } from '../../Theme/Variables'
 
 const Card = styled.div`
     width: 28%;
-    border: 2px solid ${colors.darkGrey};
     background-image: url(${nflColorImg});
     background-size: cover;
     margin-bottom: 40px;
@@ -16,7 +15,7 @@ const CardHeader = styled.div`
   display: flex;
   justify-content: space-between;
   text-align: center;
-  background: ${colors.darkGrey};
+  background: ${colors.secondary};
   padding: .5rem;
   h3 {
     font-size: .8rem;
@@ -45,6 +44,14 @@ const Button = styled.button`
     padding: ${props =>
     props.small ? `${buttonSize.small}` : `${buttonSize.medium}`
   }
+
+  :hover {
+        background: ${props => props.primary ? `${colors.secondary}` : `${colors.primary}`};
+
+        box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.42);
+        transition-timing-function: ease-in-out;
+        transition: 0.4s; 
+    }
 `
 
 const UGameCard = (props) => {

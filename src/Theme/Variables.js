@@ -15,6 +15,7 @@ const buttonSize = {
         medium: '1.1rem 2.4rem',
         large: '1.8rem 2.4rem'
     },
+    tiny: '0 2.5rem',
     small: '1.1rem 1.2rem',
     medium: '1.2rem 2.4rem',
     large: '2rem 2.4rem'
