@@ -81,20 +81,40 @@ const TeamContent = (props) => {
     //This component Takes in props from to display the information for the teams.
 
     return (
-        <Grouping>
-            <div>
-                <div >
-                    <TeamLogo src={props.team.first.strTeamLogo} alt="" />
-                </div>
-                {props.team.first.strTeam}
-            </div>
-            <div>
-                <div >
-                    <TeamLogo src={props.team.second.strTeamLogo} alt="" />
-                </div>
-                {props.team.second.strTeam}
-            </div>
-        </Grouping>
+        // <div>
+        //     <div>
+        //         <div >
+        //             <TeamLogo src={props.team.strTeamLogo} alt="" />
+        //         </div>
+        //         {/* {props.team.strTeam} */}
+        //     </div>
+        // </div>
+
+        <GameRow>
+            <GameInfo>
+                <h3>Game Info Goes Here</h3>
+            </GameInfo>
+            <GameTeamColumn>
+                <Team1>
+                    <LogoContainer>
+                        <TeamLogo src={props.team.first.strTeamLogo} title={`${props.team.first.strTeam}`} alt={`${props.team.first.strTeam}`} />
+                    </LogoContainer>
+                    <TeamBet>
+                        <p>This is some content</p>
+                    </TeamBet>
+                </Team1>
+
+
+                <Team2>
+                    <LogoContainer>
+                        <TeamLogo src={props.team.second.strTeamLogo} title={`${props.team.second.strTeam}`} alt={`${props.team.second.strTeam}`} />
+                    </LogoContainer>
+                    <TeamBet>
+                        <p>This is some content</p>
+                    </TeamBet>
+                </Team2>
+            </GameTeamColumn>
+        </GameRow>
     );
 }
 
