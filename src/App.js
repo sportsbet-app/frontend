@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, Route } from "react-router-dom";
 import Logo from './Assets/Logo.png'
 import SideBar from './PermaView/SideBar'
+import HomePage from "./home"
 import NavBar from './PermaView/NavBar'
 import BetSlip from './Components/BetSlip/BetSlip'
 import PageContent from './Components/PageContent'
@@ -15,6 +16,7 @@ import { colors, buttonSize } from './Theme/Variables.js'
 import './index.css'
 
 import './Theme/index.js'
+import { set } from 'es-cookie';
 
 const PageContainer = styled.div`
   background-color: #fff;
@@ -64,10 +66,11 @@ const NavRow = styled.div`
 `
 
 function App() {
-
+  const [sport,setSport] = useState('nfl')
   return (
     <div style={{ overflow: 'auto' }}>
       <SideBar />
+      <HomePage />
       <PageContainer>
         <GlobalStyle />
 
@@ -81,11 +84,11 @@ function App() {
 
           <NavLinks>
             <NavRow activeStyle={{ textDecoration: 'underline' }}>
-              <Link to='/nfl'>NFL</Link>
-              <Link to='/mlb'>MLB</Link>
-              <Link to="/ncaa">NCAA</Link>
-              <Link to="/cfl">CFL</Link>
-              <Link to="/nba">NBA</Link>
+              <Link to='/nfl' onClick={()=>setSport('nfl')}>NFL</Link>
+              <Link to='/mlb' onClick={()=>setSport('mlb')}>MLB</Link>
+              <Link to="/ncaa" onClick={()=>setSport('ncaa')}>NCAA</Link>
+              <Link to="/cfl" onClick={()=>setSport('cfl')}>CFL</Link>
+              <Link to="/nba" onClick={()=>setSport('nba')}>NBA</Link>
             </NavRow>
 
             <NavRow>
@@ -97,7 +100,7 @@ function App() {
 
         <CardContainer />
         <Favorites />
-        <PageContent />
+        <PageContent sport={sport} />
         <div id='wrap' className='wrapper'>
           <BetSlip />
         </div>

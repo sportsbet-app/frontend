@@ -9,12 +9,14 @@ import { deleteBet } from '../../Actions'
 const betSlip = (props) => {
 
     return (
-        <PropBetsContainer>
+        <Flex column>
 
-            <PropBetsHeader>BetSlip</PropBetsHeader>
+
             <BetList bet={props.confirmedBets} delete={props.deleteBet} />
             {props.confirmedBets.length === 0 ? <p> Please Place Bet </p> : <QrCode bet={props.confirmedBets} />}
-        </PropBetsContainer>
+
+
+        </Flex>
 
     )
 }
