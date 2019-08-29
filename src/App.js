@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, Route } from "react-router-dom";
 import Logo from './Assets/Logo.png'
 import SideBar from './PermaView/SideBar'
+import HomePage from "./home"
 import NavBar from './PermaView/NavBar'
 import BetSlip from './Components/BetSlip/BetSlip'
 import PageContent from './Components/PageContent'
@@ -69,6 +70,7 @@ function App() {
   return (
     <div style={{ overflow: 'auto' }}>
       <SideBar />
+      <HomePage />
       <PageContainer>
         <GlobalStyle />
 
