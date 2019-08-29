@@ -1,126 +1,60 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons'
-import Loader from 'react-loader-spinner'
 import { connect } from 'react-redux'
 
+import BetSlip from '../BetSlip/BetSlip'
 import { confirmBet, teamData } from '../../Actions'
-import { PropBetsContainer, PropBetsHeader, StyledButton, Flex, BetCount } from './styledComponents'
-import Logo from '../../Assets/Logo.png'
-import { Stats, HeadToHead, Trios } from './Views'
+import { PropBetsContainer, PropBetsHeader, Flex, BetCount, View } from './styledComponents'
 import InfoModal from './InfoModal'
+import PropForm from './PropForm'
 
 
 const PropBets = props => {
 
-    // console.log(props)
-    console.log(props.confirmedBets)
-    const [players, setPlayers] = useState()
     const [show, setShow] = useState(false)
     const [type, setType] = useState(1)
-    const [betSlip, setBetSlip] = useState()
-
-
-    useEffect(() => {
-        betSlip && props.confirmBet(betSlip)
-        props.teamData()
-
-    }, [betSlip,])
-
-
+    const [hover, setHover] = useState(false)
 
     const slipCount = props.confirmedBets.length
 
+    return <PropBetsContainer>
 
-
-    // function getPlayers() {
-    //     axios
-    //         .get(`https://api.sportsdata.io/v3/nfl/scores/json/Players?key=719ffa8e2fe5427a88dad8c81a92fb29`)
-    //         .then(response => {
-    //             console.log('player data', response.data)
-    //             setPlayers(response.data)
-    //         })
-    // }
-
-    // useEffect(() => {
-    //     getPlayers()
-    // }, [])
-
-    // let playerOptions = players && players.map((player) =>
-    //     <option key={player.PlayerID}>{player.Name}</option>
-    // )
-
-    // if (!players) {
-    //     return (
-    //         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-    //             <img style={{ marginLeft: '5rem' }} src={Logo} alt='Rivers Casino Logo Loading' />
-    //             <p>RIVERS
-    //             SPORTSBOOK</p>
-    //             <Loader
-    //                 type="ThreeDots"
-    //                 color="#C5960C"
-    //                 height="100"
-    //                 width="100"
-    //             />
-    //         </div>
-    //     )
-    // }
-
-
-    return (
-
-        <PropBetsContainer>
-
-            <PropBetsHeader>
-                <span>Build Your Bet <i
-                    style={{ cursor: 'help' }}
-                    onMouseOver={() => setShow(true)}
-                    onMouseOut={() => setShow(false)}
-                    onClick={() => setShow(!show)}
-                >
+        <PropBetsHeader>
+            <View
+                active={type === 1} left
+                onClick={() => setType(1)}
+            >Build Your Bet <i
+                style={{ cursor: 'help' }}
+                onMouseOver={() => setShow(true)}
+                onMouseOut={() => setShow(false)}
+                onClick={() => setShow(!show)}
+            >
                     <FontAwesomeIcon size='sm' icon={faQuestionCircle} />
                     <InfoModal show={show} />
-                </i></span>
-                <span><BetCount>{slipCount}</BetCount>Betslip</span>
-            </PropBetsHeader>
+                </i></View>
+            <View
+                onClick={() => setType(2)}
+                onMouseOver={() => setHover(true)}
+                onMouseOut={() => setHover(false)}
+                active={type === 2}
+            >Betslip<BetCount active={type === 2} hover={hover}>{slipCount}</BetCount></View>
+        </PropBetsHeader>
 
-            <Flex>
-                <StyledButton
-                    primary small first
-                    active={type === 1}
-                    onClick={() => setType(1)}
-                >STAT</StyledButton>
-                <StyledButton
-                    primary small middle
-                    active={type === 2}
-                    onClick={() => setType(2)}
-                >H2H</StyledButton>
-                <StyledButton
-                    primary small last
-                    active={type === 3}
-                    onClick={() => setType(3)}
-                >TRIOS</StyledButton>
-            </Flex>
+        <Flex column>
+            {(() => {
+                switch (type) {
+                    case 1:
+                        return <PropForm />
+                    case 2:
+                        return <BetSlip />
+                    default:
+                        return <PropForm />
+                }
+            })()}
+        </Flex>
 
-            <Flex column>
-                {(() => {
-                    switch (type) {
-                        case 1:
-                            return <Stats setBetSlip={setBetSlip} />
-                        case 2:
-                            return <HeadToHead setBetSlip={setBetSlip} />
-                        case 3:
-                            return <Trios setBetSlip={setBetSlip} />
-                        default:
-                            return <Stats setBetSlip={setBetSlip} />
-                    }
-                })()}
-            </Flex>
-
-        </PropBetsContainer>
-
-    )
+    </PropBetsContainer>
 
 }
 

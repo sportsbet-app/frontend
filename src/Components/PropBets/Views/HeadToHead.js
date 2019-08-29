@@ -43,7 +43,7 @@ const HeadToHead = props => {
                     placeholder={player}
                     value={playerOneSelection}
                     onChange={(sel) => setPlayerOneSelection(sel)}
-                    options={playerOptions}
+                    options={props.players}
                     isSearchable={true}
 
                 />
@@ -62,7 +62,7 @@ const HeadToHead = props => {
                     placeholder={player}
                     value={playerTwoSelection}
                     onChange={(sel) => setPlayerTwoSelection(sel)}
-                    options={playerOptions}
+                    options={props.players}
                     isSearchable={true}
 
                 />

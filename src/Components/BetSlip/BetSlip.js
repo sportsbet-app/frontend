@@ -15,15 +15,13 @@ import { deleteBet } from '../../Actions'
 //functional component using props passed from global state/redux
 const BetSlip = (props) => {
 
-    return (
-        <PropBetsContainer>
-            <PropBetsHeader>BetSlip</PropBetsHeader>
-            <BetList bet={props.confirmedBets} delete={props.deleteBet} />
-            //ternary for if you have made bets or not, if not ask to make a bet
-            {props.confirmedBets.length === 0 ? <p> Please Place Bet </p> : <QrCode bet={props.confirmedBets} />}
-        </PropBetsContainer>
-
-    )
+  return (
+    <Flex column>
+      <BetList bet={props.confirmedBets} delete={props.deleteBet} />
+      //ternary for if you have made bets or not, if not ask to make a bet
+      {props.confirmedBets.length === 0 ? <p> Please Place Bet </p> : <QrCode bet={props.confirmedBets} />}
+    </Flex>
+  )
 }
 
 //grab the state from the connect

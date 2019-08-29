@@ -43,7 +43,7 @@ const Trios = props => {
                     className='ninety third'
                     value={playerOneSelection}
                     onChange={(sel) => setPlayerOneSelection(sel)}
-                    options={playerOptions}
+                    options={props.players}
                     isSearchable={true}
                     placeholder={player}
 
@@ -58,7 +58,7 @@ const Trios = props => {
                     className='ninety third'
                     value={playerTwoSelection}
                     onChange={(sel) => setPlayerTwoSelection(sel)}
-                    options={playerOptions}
+                    options={props.players}
                     isSearchable={true}
                     placeholder={player}
 
@@ -73,7 +73,7 @@ const Trios = props => {
                     className='ninety third'
                     value={playerThreeSelection}
                     onChange={(sel) => setPlayerThreeSelection(sel)}
-                    options={playerOptions}
+                    options={props.players}
                     isSearchable={true}
                     placeholder={player}
 

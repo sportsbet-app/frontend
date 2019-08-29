@@ -1,10 +1,11 @@
-import { CONFIRM_BET, DELETE_BET, TEAM_DATA_SUCCESS, TEAM_DATA_FAILURE } from "../Actions"
+import { CONFIRM_BET, DELETE_BET, TEAM_DATA_SUCCESS, TEAM_DATA_FAILURE, MAKE_FAVORITE, REMOVE_FAVORITE } from "../Actions"
 
 const initialState = {
     bet: {},
     confirmedBets: [],
     nflTeamData: [],
-    error: null
+    error: null,
+    favoriteList: []
 }
 
 export default (state = initialState, action) => {
@@ -43,7 +44,18 @@ export default (state = initialState, action) => {
         case TEAM_DATA_FAILURE:
             console.log(action.payload)
             return {
+                ...state,
                 error: action.payload
+            }
+        case MAKE_FAVORITE:
+            return {
+                ...state,
+                favoriteList: [...state.favoriteList, action.payload]
+            }
+        case REMOVE_FAVORITE:
+            return {
+                ...state,
+                favoriteList: state.favoriteList.filter(fav => (action.payload.first.idTeam && action.payload.second.idTeam) !== (fav.first.idTeam && fav.second.idTeam))
             }
         default:
             return state
