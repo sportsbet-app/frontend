@@ -11,7 +11,7 @@ import NBA from "../Sports/NBA";
 
 //import styling
 import styled from 'styled-components'
-import { colors } from '../../Theme/Variables'
+import { colors, buttonSize } from '../../Theme/Variables'
 
 
 //overall container
@@ -31,7 +31,7 @@ const ContainerTitle = styled.div`
     background-color: ${colors.primary};
     color: #fff;
     width: 60%;
-    max-height: 28px;
+    max-height: 38px;
     display: flex;
     align-items: center;
     margin-bottom: 40px;
