@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 import styled from 'styled-components'
 import { colors, buttonSize } from '../../Theme/Variables'
@@ -19,11 +20,25 @@ const FavoritesContainer = styled.div`
 
 const Favorites = (props) => {
 
+    console.log(props.favoriteList)
+
+    if (!props.favoriteList.length) return (
+        <FavoritesContainer>
+            <p>You don't have any favorites selected yet. Please click that badass star that Brandi made to make  a team be a favorite of yours.</p>
+        </FavoritesContainer>
+    )
+
     return (
         <FavoritesContainer>
-            <p>You currently do not have any games marked as favorites.  Browse games to mark your favorites.</p>
+            {props.favoriteList.map(fav => <Favorite teamOne={fav.first} teamTwo={fav.second} />)}
         </FavoritesContainer>
     )
 }
 
-export default Favorites
+function Favorite(props) {
+    return <p>{`${props.teamOne.strTeam} VERSUS ${props.teamTwo.strTeam}`}</p>
+}
+
+const mapStateToProps = state => ({ ...state })
+
+export default connect(mapStateToProps)(Favorites)
