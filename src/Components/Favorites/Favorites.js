@@ -23,9 +23,10 @@ const Favorites = (props) => {
     console.log(props.favoriteList)
 
     if (!props.favoriteList.length) return (
-        <FavoritesContainer>
-            <p>You don't have any favorites selected yet. Please click that badass star that Brandi made to make  a team be a favorite of yours.</p>
-        </FavoritesContainer>
+        // <FavoritesContainer>
+        //     <p>You don't have any favorites selected yet. Please click that badass star that Brandi made to make  a team be a favorite of yours.</p>
+        // </FavoritesContainer>
+        <></>
     )
 
     return (

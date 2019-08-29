@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
+
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 
@@ -33,12 +35,8 @@ const GameInfo = styled.div`
     border-right: 1px dotted ${colors.darkGrey};
     padding: 1.5rem;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
 
-    h3 {
-        ${'' /* font-size: .925rem; */}
-        padding: 0;
-    }
 
 `
 
@@ -101,8 +99,8 @@ const StarContainer = styled.div`
     align-items: center;
     color: ${props => props.liked ? colors.primary : "#bdbdbd"};
     text-align: center;
-    font-size: 1.4rem;
-    padding: .3rem;
+    font-size: 1.6rem;
+    padding: .5rem;
     background: ${colors.darkGrey};
 
     :hover {
@@ -118,57 +116,59 @@ const TeamContent = props => {
     const [liked, setLiked] = useState(false)
 
     return (
-
-        <GameRow>
-            <StarContainer liked={liked} onClick={() => {
-                setLiked(!liked)
-                !liked ? props.makeFavorite(props.team) : props.removeFavorite(props.team)
-            }}>{star}</StarContainer>
-            <GameInfo>
-                <p><strong>{props.team.first.strTeam}</strong><br />
-                    @<br />
-                    <strong>{props.team.second.strTeam}</strong>
-                </p>
-
-            </GameInfo>
-            <GameTeamColumn>
-                <Team1>
-                    <LogoContainer>
-                        <TeamLogo
-                            src={props.team.first.strTeamBadge}
-                            title={`${props.team.first.strTeam}`}
-                            alt={`${props.team.first.strTeam}`}
-                        />
-                    </LogoContainer>
-                    <TeamBet>
-                        <ButtonRow>
-                            <Button primary>-12</Button>
-                            <Button primary>420</Button>
-                            <Button primary>-123</Button>
-                        </ButtonRow>
-                    </TeamBet>
-                </Team1>
+        <>
 
 
-                <Team2>
-                    <LogoContainer>
-                        <TeamLogo
-                            src={props.team.second.strTeamBadge}
-                            title={`${props.team.second.strTeam}`}
-                            alt={`${props.team.second.strTeam}`}
-                        />
-                    </LogoContainer>
-                    <TeamBet>
-                        <ButtonRow>
-                            <Button primary>-12</Button>
-                            <Button primary>420</Button>
-                            <Button primary>-123</Button>
-                        </ButtonRow>
-                    </TeamBet>
-                </Team2>
-            </GameTeamColumn>
-        </GameRow>
+            <GameRow>
+                <StarContainer liked={liked} onClick={() => {
+                    setLiked(!liked)
+                    !liked ? props.makeFavorite(props.team) : props.removeFavorite(props.team)
+                }}>{star}</StarContainer>
+                <GameInfo>
+                    <p><strong>{props.team.first.strTeam}</strong><br />
+                        @<br />
+                        <strong>{props.team.second.strTeam}</strong>
+                    </p>
 
+                </GameInfo>
+                <GameTeamColumn>
+                    <Team1>
+                        <LogoContainer>
+                            <TeamLogo
+                                src={props.team.first.strTeamBadge}
+                                title={`${props.team.first.strTeam}`}
+                                alt={`${props.team.first.strTeam}`}
+                            />
+                        </LogoContainer>
+                        <TeamBet>
+                            <ButtonRow>
+                                <Button primary>-12</Button>
+                                <Button primary>420</Button>
+                                <Button primary>-123</Button>
+                            </ButtonRow>
+                        </TeamBet>
+                    </Team1>
+
+
+                    <Team2>
+                        <LogoContainer>
+                            <TeamLogo
+                                src={props.team.second.strTeamBadge}
+                                title={`${props.team.second.strTeam}`}
+                                alt={`${props.team.second.strTeam}`}
+                            />
+                        </LogoContainer>
+                        <TeamBet>
+                            <ButtonRow>
+                                <Button primary>-12</Button>
+                                <Button primary>420</Button>
+                                <Button primary>-123</Button>
+                            </ButtonRow>
+                        </TeamBet>
+                    </Team2>
+                </GameTeamColumn>
+            </GameRow>
+        </>
     );
 }
 
