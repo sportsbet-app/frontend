@@ -4,6 +4,7 @@ import { slide as Menu } from 'react-burger-menu';
 export default props => {
   return (
     <Menu>
+      
       <a className="menu-item" href="/">
         Home
       </a>
@@ -22,6 +23,18 @@ export default props => {
 
       <a className="menu-item" href="">
         CFL
+      </a>
+
+      <a className="menu-item" href="">
+        NBA
+      </a>
+
+      <a className="menu-item" href="https://www.vegas.com/gaming/gaming-tips/sports-betting/">
+        Rules and How to bet 
+      </a>
+
+      <a className="menu-item" href="">
+        NBA
       </a>
 
       <a className="menu-item" href="">
