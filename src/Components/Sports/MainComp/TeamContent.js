@@ -108,7 +108,11 @@ const TeamContent = (props) => {
             <GameTeamColumn>
                 <Team1>
                     <LogoContainer>
-                        <TeamLogo src={props.team.first.strTeamBadge} title={`${props.team.first.strTeam}`} alt={`${props.team.first.strTeam}`} />
+                        <TeamLogo
+                            src={props.team.first.strTeamBadge}
+                            title={`${props.team.first.strTeam}`}
+                            alt={`${props.team.first.strTeam}`}
+                        />
                     </LogoContainer>
                     <TeamBet>
                         <ButtonRow>
@@ -122,7 +126,11 @@ const TeamContent = (props) => {
 
                 <Team2>
                     <LogoContainer>
-                        <TeamLogo src={props.team.second.strTeamBadge} title={`${props.team.second.strTeam}`} alt={`${props.team.second.strTeam}`} />
+                        <TeamLogo
+                            src={props.team.second.strTeamBadge}
+                            title={`${props.team.second.strTeam}`}
+                            alt={`${props.team.second.strTeam}`}
+                        />
                     </LogoContainer>
                     <TeamBet>
                         <ButtonRow>
