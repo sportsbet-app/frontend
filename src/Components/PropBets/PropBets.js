@@ -6,6 +6,7 @@ import Loader from 'react-loader-spinner'
 import { connect } from 'react-redux'
 
 import { confirmBet, teamData } from '../../Actions'
+import { statOptions, playerOptions, statTypeOption } from '../../Assets/DummyData'
 import { PropBetsContainer, PropBetsHeader, StyledButton, Flex, BetCount } from './styledComponents'
 import Logo from '../../Assets/Logo.png'
 import { Stats, HeadToHead, Trios } from './Views'
@@ -39,7 +40,8 @@ const PropBets = props => {
     //         .get(`https://api.sportsdata.io/v3/nfl/scores/json/Players?key=719ffa8e2fe5427a88dad8c81a92fb29`)
     //         .then(response => {
     //             console.log('player data', response.data)
-    //             setPlayers(response.data)
+    //             setPlayers(response.data.sort())
+    //             console.log(players)
     //         })
     // }
 
@@ -47,16 +49,14 @@ const PropBets = props => {
     //     getPlayers()
     // }, [])
 
-    // let playerOptions = players && players.map((player) =>
-    //     <option key={player.PlayerID}>{player.Name}</option>
-    // )
+    let playerSelects = playerOptions.map((player) =>
+        ({ value: player, label: player })
+    )
 
     // if (!players) {
     //     return (
     //         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-    //             <img style={{ marginLeft: '5rem' }} src={Logo} alt='Rivers Casino Logo Loading' />
-    //             <p>RIVERS
-    //             SPORTSBOOK</p>
+
     //             <Loader
     //                 type="ThreeDots"
     //                 color="#C5960C"
@@ -107,13 +107,13 @@ const PropBets = props => {
                 {(() => {
                     switch (type) {
                         case 1:
-                            return <Stats setBetSlip={setBetSlip} />
+                            return <Stats players={playerSelects} setBetSlip={setBetSlip} />
                         case 2:
-                            return <HeadToHead setBetSlip={setBetSlip} />
+                            return <HeadToHead players={playerSelects} setBetSlip={setBetSlip} />
                         case 3:
-                            return <Trios setBetSlip={setBetSlip} />
+                            return <Trios players={playerSelects} setBetSlip={setBetSlip} />
                         default:
-                            return <Stats setBetSlip={setBetSlip} />
+                            return <Stats players={playerSelects} setBetSlip={setBetSlip} />
                     }
                 })()}
             </Flex>

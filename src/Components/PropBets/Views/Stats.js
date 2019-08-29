@@ -40,7 +40,7 @@ const Stats = props => {
                     className='ninety'
                     value={playerSelectedOption}
                     onChange={(sel) => setPlayerSelectedOption(sel)}
-                    options={playerOptions}
+                    options={props.players}
                     isSearchable={true}
                     placeholder={player}
 

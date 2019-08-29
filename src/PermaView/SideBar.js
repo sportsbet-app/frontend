@@ -5,7 +5,11 @@ export default props => {
   return (
     <Menu>
       <a className="menu-item" href="/">
-        Home
+        Live Betting
+      </a>
+
+      <a className="menu-item" href="/">
+        Upcoming
       </a>
 
       <a className="menu-item" href="">
