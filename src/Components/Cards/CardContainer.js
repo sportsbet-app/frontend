@@ -10,6 +10,7 @@ import CFL from "../Sports/CFL";
 import NBA from "../Sports/NBA";
 
 //import styling
+import textureBG from '../../Assets/texture.jpg'
 import styled from 'styled-components'
 import { colors, buttonSize } from '../../Theme/Variables'
 
@@ -17,24 +18,23 @@ import { colors, buttonSize } from '../../Theme/Variables'
 //overall container
 const CardHolder = styled.div`
     max-width: 100%;
-    ${'' /* min-height: 36vh; */}
-    ${'' /* margin-top: 22px; */}
-    background: linear-gradient(to bottom, #445660, #3d4a52);
+    background: linear-gradient(to top, ${colors.darkGrey}, ${colors.darkGrey});
     color: #fff;
 `
 
 const Card = styled.div`
-    width: 100%;
+width: 100 %;
 `
 
 const ContainerTitle = styled.div`
-    background-color: ${colors.primary};
-    color: #fff;
-    width: 60%;
-    max-height: 38px;
-    display: flex;
-    align-items: center;
-    margin-bottom: 40px;
+background-color: ${colors.primary};
+color: #fff;
+width: 60%;
+max-height: 38px;
+display: flex;
+align-items: center;
+margin-bottom: 40px;
+
     h2 {
         font-size: 1.4rem;
         padding-left: 1.2rem;
@@ -43,11 +43,11 @@ const ContainerTitle = styled.div`
 `
 
 const ContainerContent = styled.div`
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    padding: 2rem 0;
+margin: 0 auto;
+display: flex;
+justify-content: space-around;
+flex-wrap: wrap;
+padding: 2rem 0;
 `
 
 const CardContainer = props => {
