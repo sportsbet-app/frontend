@@ -34,8 +34,14 @@ export const teamData = _ => dispatch => {
   axios
     .get(NFL)
     .then(res => {
-      console.log('nfl team data', res.data)
-      dispatch({ type: TEAM_DATA_SUCCESS, payload: res.data.teams })
+      const teams = []
+      for (let i = 0; i < res.data.teams.length - 1; i += 2) {
+        teams.push({
+          first: res.data.teams[i],
+          second: res.data.teams[i + 1]
+        })
+      }
+      dispatch({ type: TEAM_DATA_SUCCESS, payload: teams })
     })
     .catch(err => {
       dispatch({ type: TEAM_DATA_FAILURE, payload: err.response })

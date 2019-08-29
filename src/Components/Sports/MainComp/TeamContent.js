@@ -4,6 +4,12 @@ import axios from "axios";
 import styled from 'styled-components'
 import { colors, buttonSize } from '../../../Theme/Variables'
 
+const Grouping = styled.div`
+    max-width: 50%;
+    margin: 50px 0;
+    border: 5px solid red;
+`
+
 const TeamLogo = styled.img`
     max-width: 88px;
 `
@@ -75,40 +81,20 @@ const TeamContent = (props) => {
     //This component Takes in props from to display the information for the teams.
 
     return (
-        // <div>
-        //     <div>
-        //         <div >
-        //             <TeamLogo src={props.team.strTeamLogo} alt="" />
-        //         </div>
-        //         {/* {props.team.strTeam} */}
-        //     </div>
-        // </div>
-
-        <GameRow>
-            <GameInfo>
-                <h3>Game Info Goes Here</h3>
-            </GameInfo>
-            <GameTeamColumn>
-                <Team1>
-                    <LogoContainer>
-                        <TeamLogo src={props.team.strTeamLogo} alt="" />
-                    </LogoContainer>
-                    <TeamBet>
-                        <p>This is some content</p>
-                    </TeamBet>
-                </Team1>
-
-
-                <Team2>
-                    <LogoContainer>
-                        <TeamLogo src={props.team.strTeamLogo} alt="" />
-                    </LogoContainer>
-                    <TeamBet>
-                        <p>This is some content</p>
-                    </TeamBet>
-                </Team2>
-            </GameTeamColumn>
-        </GameRow>
+        <Grouping>
+            <div>
+                <div >
+                    <TeamLogo src={props.team.first.strTeamLogo} alt="" />
+                </div>
+                {props.team.first.strTeam}
+            </div>
+            <div>
+                <div >
+                    <TeamLogo src={props.team.second.strTeamLogo} alt="" />
+                </div>
+                {props.team.second.strTeam}
+            </div>
+        </Grouping>
     );
 }
 
