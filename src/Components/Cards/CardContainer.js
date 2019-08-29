@@ -11,7 +11,7 @@ import NBA from "../Sports/NBA";
 
 //import styling
 import styled from 'styled-components'
-import { colors } from '../../Theme/Variables'
+import { colors, buttonSize } from '../../Theme/Variables'
 
 
 //overall container
@@ -19,7 +19,7 @@ const CardHolder = styled.div`
     max-width: 100%;
     ${'' /* min-height: 36vh; */}
     ${'' /* margin-top: 22px; */}
-    background: linear-gradient(to bottom, #474F54, #1F262B);
+    background: linear-gradient(to bottom, #445660, #3d4a52);
     color: #fff;
 `
 
@@ -31,7 +31,7 @@ const ContainerTitle = styled.div`
     background-color: ${colors.primary};
     color: #fff;
     width: 60%;
-    max-height: 28px;
+    max-height: 38px;
     display: flex;
     align-items: center;
     margin-bottom: 40px;
