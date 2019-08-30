@@ -122,7 +122,7 @@ const TeamContent = props => {
             <GameRow>
                 <StarContainer liked={liked} onClick={() => {
                     setLiked(!liked)
-                    !liked ? props.makeFavorite(props.team) : props.removeFavorite(props.team)
+                    !liked ? props.makeFavorite(props.team) : props.removeFavorite(props)
                 }}>{star}</StarContainer>
                 <GameInfo>
                     <p><strong>{props.team.first.strTeam}</strong><br />
