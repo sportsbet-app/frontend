@@ -58,7 +58,8 @@ const NFLPlayers = () => {
                     width={80}
                 />
             </LoaderContainer> */}
-            <SearchContainer><input type="text" placeholder="Enter Player Name To Search Players" /></SearchContainer>
+            <SearchContainer><input type="text" placeholder="Enter Player Name To Search Players" />
+            </SearchContainer>
             {playerOptions.map(player => <PlayerCard player={player} />)}
         </Container>
 

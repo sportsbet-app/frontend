@@ -17,19 +17,13 @@ import { colors, buttonSize } from '../../Theme/Variables'
 
 //overall container
 const CardHolder = styled.div`
-<<<<<<< HEAD
-    max-width: 100%;
-    background: linear-gradient(to bottom, ${colors.secondary}, #3b4951);
-    color: #fff;
-=======
   max-width: 100%;
   background: linear-gradient(to top, ${colors.darkGrey}, ${colors.darkGrey});
   color: #fff;
->>>>>>> c0d56bc986037a5b3fb2c10b5cc2c53c157cf51b
 `
 
 const Card = styled.div`
-  width: 100 %;
+  width: 100%;
 `
 
 //styling for the page heading/title

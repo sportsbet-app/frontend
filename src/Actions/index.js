@@ -72,12 +72,4 @@ export const confirmBet = bet => ({ type: CONFIRM_BET, payload: bet })
 //function to delete selected bet by ID through action dispatch
 export const deleteBet = (bet, id) => ({ type: DELETE_BET, payload: { bet, id } })
 
-<<<<<<< HEAD
 export const favorite = game => ({ type: FAVORITE, payload: game })
-=======
-//add a team to your favorites 
-export const makeFavorite = game => ({ type: MAKE_FAVORITE, payload: game })
-
-//remove from the favorites list
-export const removeFavorite = game => ({ type: REMOVE_FAVORITE, payload: game })
->>>>>>> c0d56bc986037a5b3fb2c10b5cc2c53c157cf51b
