@@ -104,7 +104,7 @@ function Favorite(props) {
             <StarContainer
                 liked={props.pair.favorited}
                 onClick={_ => props.favorite(props.pair)}
-            >{star}
+            >{pin}
             </StarContainer>
             <GameItem>
                 <Team1>{props.pair.first.strTeam}</Team1>

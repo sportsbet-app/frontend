@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from 'styled-components'
 
-import { colors, buttonSize } from '../../../Theme/Variables'
+import { colors } from '../../../Theme/Variables'
 import { playerOptions } from '../../../Assets/DummyData'
 import PlayerCard from './PlayerCard'
 
@@ -73,4 +73,4 @@ const NFLPlayers = () => {
     )
 }
 
-export default NFLPlayers;
+export default NFLPlayers

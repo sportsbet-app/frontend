@@ -8,7 +8,8 @@ import CardContainer from './CardContainer'
 //test to check that the app will display when called.
 describe('<CardContainer />', () => {
   it('should display', () => {
-    let load = render(<CardContainer/>)
+    //render the component
+    render(<CardContainer/>)
     
   })
   //create a snapshot

@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import Loader from 'react-loader-spinner'
 
 import TeamContent from "./TeamContent";
-import { colors, buttonSize } from '../../../Theme/Variables'
+import { colors } from '../../../Theme/Variables'
 
 const Container = styled.div`
     max-width: 100%;

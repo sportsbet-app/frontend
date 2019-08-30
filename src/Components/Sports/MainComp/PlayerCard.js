@@ -1,9 +1,9 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { faStar, faThumbtack } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
 
-import { colors, buttonSize } from '../../../Theme/Variables'
+import { colors } from '../../../Theme/Variables'
 
 const PlayerContainer = styled.div`
     display: flex;
@@ -63,6 +63,7 @@ const PlayerInfo = styled.div`
 `
 
 const star = <FontAwesomeIcon icon={faStar} />
+const pin = <FontAwesomeIcon icon={faThumbtack} />
 
 const PlayerCard = props => {
 
@@ -72,7 +73,7 @@ const PlayerCard = props => {
             <TopPlayerCard>
                 <TopPlayerCardHeader>
                     <PlayerFavorite>
-                        {star}
+                        {pin}
                     </PlayerFavorite>
                     <PlayerInfo>
                         <h3>{props.player.name}</h3>
