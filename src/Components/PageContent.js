@@ -1,13 +1,21 @@
 import React, { useState } from 'react';
 import PropBets from './PropBets/PropBets'
 import BetSlip from './BetSlip/BetSlip'
+
 import styled from 'styled-components'
 import { colors, buttonSize } from '../Theme/Variables'
+
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faSearch } from '@fortawesome/free-solid-svg-icons'
+
 import { Link, Route } from "react-router-dom";
 import './PageContent.css';
 import NFLTeam from './Sports/MainComp/NFLTeam';
 import NFLPlayers from './Sports/MainComp/NFLPlayers';
 import NFLMisc from './Sports/MainComp/NFLMisc';
+
+
+// const search = <FontAwesomeIcon icon={faSearch} />
 
 const PageContentContainer = styled.div`
   max-width: 1500px;
@@ -69,8 +77,12 @@ const Button = styled.button`
   }
 `
 
+
+
+
 const PageContent = (props) => {
   const [type, setType] = useState(1)
+
   return (
 
     <PageContentContainer>
@@ -79,7 +91,7 @@ const PageContent = (props) => {
           <Button
             active={type === 1}
             onClick={() => setType(1)}
-          >Teams</Button>
+          >Live Games</Button>
           <Button
             active={type === 2}
             onClick={() => setType(2)}
@@ -91,6 +103,7 @@ const PageContent = (props) => {
         </ButtonContainer>
 
         <Teams>
+
           {(() => {
             switch (type) {
               case 1:

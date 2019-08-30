@@ -7,6 +7,7 @@ import NavBar from './PermaView/NavBar'
 import BetSlip from './Components/BetSlip/BetSlip'
 import PageContent from './Components/PageContent'
 import Favorites from './Components/Favorites/Favorites'
+import Footer from './PermaView/Footer'
 
 import CardContainer from './Components/Cards/CardContainer'
 
@@ -104,6 +105,7 @@ function App() {
         <div id='wrap' className='wrapper'>
           <BetSlip />
         </div>
+        <Footer />
       </PageContainer>
     </div>
   )

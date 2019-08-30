@@ -43,6 +43,10 @@ const Stats = props => {
                     options={props.players}
                     isSearchable={true}
                     placeholder={player}
+                    theme={theme => ({
+                        ...theme,
+                        borderRadius: 0,
+                    })}
 
                 />
             </Flex>
@@ -91,6 +95,10 @@ const Stats = props => {
                         options={statTypeOption}
                         isSearchable={true}
                         required={true}
+                        theme={theme => ({
+                            ...theme,
+                            borderRadius: 0,
+                        })}
                     />
                 </CountDisplay>
             </Flex>
@@ -103,6 +111,10 @@ const Stats = props => {
                     options={statOptions}
                     isSearchable={true}
                     placeholder={stat}
+                    theme={theme => ({
+                        ...theme,
+                        borderRadius: 0,
+                    })}
                 />
             </Flex>
 

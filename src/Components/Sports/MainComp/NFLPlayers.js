@@ -21,6 +21,29 @@ const LoaderContainer = styled.div`
     text-align: center;
 `
 
+const SearchContainer = styled.div`
+width: 100%;
+margin: 4rem 2rem;
+
+
+input {
+  width: 500px;
+  border: 0;
+  height: 40px;
+  background: ${colors.secondary};
+  font-size: 1.4rem;
+  color: #fff;
+  border-bottom: 2px dotted ${colors.darkGrey};
+
+  ::placeholder,
+  ::-webkit-input-placeholder {
+    color: #fff;
+  }
+  :-ms-input-placeholder {
+    color: #fff;
+  }
+}
+`
 
 const NFLPlayers = () => {
 
@@ -35,6 +58,7 @@ const NFLPlayers = () => {
                     width={80}
                 />
             </LoaderContainer> */}
+            <SearchContainer><input type="text" placeholder="Enter Player Name To Search Players" /></SearchContainer>
             {playerOptions.map(player => <PlayerCard player={player} />)}
         </Container>
 

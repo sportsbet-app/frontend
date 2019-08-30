@@ -1,41 +1,79 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { faStar, faThumbtack } from '@fortawesome/free-solid-svg-icons'
 
 import styled from 'styled-components'
 import { colors, buttonSize } from '../../Theme/Variables'
-import { makeFavorite, removeFavorite } from '../../Actions'
+import { favorite } from '../../Actions'
 
 const FavoritesContainer = styled.div`
-    width: 96%;
+    width: 97%;
     padding: .5rem .5rem;
     margin: 0 auto;
-    margin-top: 20px;
-    background: ${colors.secondary};
+    margin-top: 40px;
+    margin-bottom: 30px;
+    background: #f5f5f5;
+    border: 1px solid #ededed;
     color: #fff;
+    display: flex;
+    flex-wrap: wrap;
 
+    h2 {
+        color: ${colors.primary};
+        width: 100%;
+        padding-left: .75rem;
+    }
     p {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
     }
 `
 
 const FavoriteItem = styled.div`
     display: flex;
+    margin: 1.2rem;
+    border: 1px solid #ededed;
+
+    :hover {
+        cursor: pointer;
+        box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.42);
+        transition-timing-function: ease-in-out;
+        transition: 0.4s; 
+    }
 `
+
 const StarContainer = styled.div`
 color: ${props => props.liked ? colors.primary : "#bdbdbd"};
+background: ${colors.darkGrey};
+display: flex;
+align-items: center;
+padding: .5rem;
 `
 
 const GameItem = styled.div`
-
+    background: #fff;
+    color: ${colors.secondary};
+    font-size: 1.4rem;
+    padding: .5rem .5rem;
+    text-align: center;
+    min-width: 220px;
 `
+const Team1 = styled.div`
+    font-weight: bold;
+`
+const Team2 = styled.div`
+ font-weight: bold;
+`
+const Vs = styled.div`
+    font-size: .8rem;
+    padding: .25rem 0;
+`
+
 const star = <FontAwesomeIcon icon={faStar} />
+const pin = <FontAwesomeIcon icon={faThumbtack} />
 
-const Favorites = (props) => {
-
-    console.log(props.favoriteList)
+const Favorites = props => {
 
     if (!props.favoriteList.length) return (
         // <FavoritesContainer>
@@ -46,29 +84,37 @@ const Favorites = (props) => {
 
     return (
         <FavoritesContainer>
-            {props.favoriteList.map(fav => <Favorite teamOne={fav.first} teamTwo={fav.second} removeFavorite={props.removeFavorite} />)}
+            <h2>{pin} My Pinned Games</h2>
+            {props.favoriteList.length && props.favoriteList.map(fav => <Favorite
+                pair={fav}
+                favorite={props.favorite}
+            />)}
         </FavoritesContainer>
     )
 }
 
 function Favorite(props) {
 
-    const [liked, setLiked] = useState(true)
+    console.log('FAV', props)
 
     return (
+
         <FavoriteItem>
-            <StarContainer liked={liked} onClick={() => {
-                setLiked(!liked)
-                { props.removeFavorite(props.team) }
-            }}>{star}
+            <StarContainer
+                liked={props.pair.favorited}
+                onClick={_ => props.favorite(props.pair)}
+            >{star}
             </StarContainer>
             <GameItem>
-                {`${props.teamOne.strTeam} VERSUS ${props.teamTwo.strTeam}`}
+                <Team1>{props.pair.first.strTeam}</Team1>
+                <Vs>VERSUS</Vs>
+                <Team2>{props.pair.second.strTeam}`}</Team2>
             </GameItem>
         </FavoriteItem>
     )
+
 }
 
 const mapStateToProps = state => ({ ...state })
 
-export default connect(mapStateToProps, { makeFavorite, removeFavorite })(Favorites)
+export default connect(mapStateToProps, { favorite })(Favorites)
