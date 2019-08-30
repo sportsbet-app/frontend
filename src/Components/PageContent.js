@@ -77,28 +77,7 @@ const Button = styled.button`
   }
 `
 
-const SearchContainer = styled.div`
-  margin: 4rem 2rem;
 
-  
-  input {
-    width: 500px;
-    border: 0;
-    height: 40px;
-    background: ${colors.secondary};
-    font-size: 1.4rem;
-    color: #fff;
-    border-bottom: 2px dotted ${colors.darkGrey};
-
-    ::placeholder,
-    ::-webkit-input-placeholder {
-      color: #fff;
-    }
-    :-ms-input-placeholder {
-      color: #fff;
-    }
-  }
-`
 
 
 const PageContent = (props) => {
@@ -124,7 +103,7 @@ const PageContent = (props) => {
         </ButtonContainer>
 
         <Teams>
-          <SearchContainer><input type="text" placeholder="Enter Team Name To Search Live & Upcoming Games" /></SearchContainer>
+
           {(() => {
             switch (type) {
               case 1:

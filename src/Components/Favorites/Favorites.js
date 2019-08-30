@@ -14,7 +14,8 @@ const FavoritesContainer = styled.div`
     margin: 0 auto;
     margin-top: 40px;
     margin-bottom: 30px;
-    background: #e7e7e7;
+    background: #f5f5f5;
+    border: 1px solid #ededed;
     color: #fff;
     display: flex;
     flex-wrap: wrap;
@@ -32,6 +33,7 @@ const FavoritesContainer = styled.div`
 const FavoriteItem = styled.div`
     display: flex;
     margin: 1.2rem;
+    border: 1px solid #ededed;
 
     :hover {
         cursor: pointer;

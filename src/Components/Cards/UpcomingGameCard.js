@@ -7,7 +7,7 @@ import { colors, buttonSize } from '../../Theme/Variables'
 const Card = styled.div`
     width: 28%;
     ${'' /* background-image: url(${nflColorImg}); */}
-    background: #fff;
+    background: #f5f5f5;
     background-size: cover;
     margin-bottom: 40px;
 `

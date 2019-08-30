@@ -105,6 +105,7 @@ const HeadToHead = props => {
                     theme={theme => ({
                         ...theme,
                         borderRadius: 0,
+
                     })}
 
                 />
