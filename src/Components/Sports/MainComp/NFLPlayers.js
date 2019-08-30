@@ -63,18 +63,11 @@ const NFLPlayers = () => {
                     placeholder="Enter Player Name To Search Players"
                     onChange={e => setSearch(e.target.value)}
                 />
-<<<<<<< HEAD
-            </LoaderContainer> */}
-            <SearchContainer><input type="text" placeholder="Enter Player Name To Search Players" />
-            </SearchContainer>
-            {playerOptions.map(player => <PlayerCard player={player} />)}
-=======
             </SearchContainer>
             {search.length ?
                 playerOptions.filter(player => player.name.toLowerCase().includes(search.toLowerCase())).map(player => <PlayerCard player={player} />)
                 :
                 playerOptions.map(player => <PlayerCard player={player} />)}
->>>>>>> 6926a036f8e52f6a50a92cc9e30135bef22bb3a7
         </Container>
 
     )
