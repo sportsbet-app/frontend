@@ -30,8 +30,10 @@ export const getData = sport => dispatch => {
 
 }
 
+//action to get specified sports data
 export const teamData = _ => dispatch => {
 
+  //maybe add a switch case for the different sports to see which sport is asked for in the  instance this is called
   axios
     .get(NFL)
     .then(res => {
@@ -51,8 +53,10 @@ export const teamData = _ => dispatch => {
 
 }
 
+//action to grab a specific player
 export const team = id => dispatch => {
 
+  //use this in the teamData as well?
   axios
     .get(`${players}${id}`)
     .then(res => {
@@ -68,4 +72,12 @@ export const confirmBet = bet => ({ type: CONFIRM_BET, payload: bet })
 //function to delete selected bet by ID through action dispatch
 export const deleteBet = (bet, id) => ({ type: DELETE_BET, payload: { bet, id } })
 
+<<<<<<< HEAD
 export const favorite = game => ({ type: FAVORITE, payload: game })
+=======
+//add a team to your favorites 
+export const makeFavorite = game => ({ type: MAKE_FAVORITE, payload: game })
+
+//remove from the favorites list
+export const removeFavorite = game => ({ type: REMOVE_FAVORITE, payload: game })
+>>>>>>> c0d56bc986037a5b3fb2c10b5cc2c53c157cf51b

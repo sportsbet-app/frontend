@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BetList /> matches snapshot 1`] = `
+<div>
+  <div>
+    //price value of the selected player
+    <h1>
+       Player : 
+      zero
+    </h1>
+    //run down of the information for the bet. (type of bet, the bet number and the players value )
+    <p>
+       
+      testing
+       : 
+      3
+        
+      0
+    </p>
+    //button to cancel the selected bet
+    <button
+      onClick={[Function]}
+      style={
+        Object {
+          "color": "black",
+        }
+      }
+    >
+       X 
+    </button>
+  </div>
+  <div>
+    <h1>
+       Player 1 : 
+      one
+    </h1>
+    <h1>
+       Player 2 : 
+      1
+    </h1>
+    <p>
+      won
+    </p>
+    <button
+      onClick={[Function]}
+      style={
+        Object {
+          "color": "black",
+        }
+      }
+    >
+       X 
+    </button>
+  </div>
+  <div>
+    <h1>
+       Player 1 : 
+      two
+    </h1>
+    <h1>
+       Player 2 : 
+      2
+    </h1>
+    <h1>
+       Player 3 : 
+      too
+    </h1>
+    <p>
+      tu
+    </p>
+    <button
+      onClick={[Function]}
+      style={
+        Object {
+          "color": "black",
+        }
+      }
+    >
+       X 
+    </button>
+  </div>
+</div>
+`;
