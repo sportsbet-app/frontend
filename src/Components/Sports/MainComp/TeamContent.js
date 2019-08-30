@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
+
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { faStar, faArrowAltCircleRight, faThumbtack } from '@fortawesome/free-solid-svg-icons'
 
 import styled from 'styled-components'
 import { colors, buttonSize } from '../../../Theme/Variables'
-import { makeFavorite, removeFavorite } from '../../../Actions'
+import { favorite } from '../../../Actions'
+
 
 const TeamLogo = styled.img`
     max-width: 80px;
@@ -26,17 +29,15 @@ const GameRow = styled.div`
 const GameInfo = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center; 
+    justify-content: space-around; 
     max-width: 140px;
     background: #fff;
     color: ${colors.darkGrey};
     border-right: 1px dotted ${colors.darkGrey};
-    padding: .5rem;
-    text-align: left;
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 1.4rem;
 
-    h3 {
-        font-size: .925rem;
-    }
 
 `
 
@@ -93,11 +94,30 @@ const Button = styled.button`
     }
 `
 
-const StarContainer = styled.div`
+const PinContainer = styled.div`
+    ${'' /* max-width: 20px; */}
+    display: flex;
+    align-items: center;
     color: ${props => props.liked ? colors.primary : "#bdbdbd"};
     text-align: center;
-    font-size: 1.4rem;
-    padding: 2rem;
+    font-size: 1.6rem;
+    padding: .5rem;
+    background: ${colors.darkGrey};
+
+    :hover {
+        cursor: pointer;
+    }
+`
+
+const ArrowContainer = styled.div`
+    ${'' /* max-width: 20px; */}
+    display: flex;
+    align-items: center;
+    color: ${colors.primary}
+    text-align: center;
+    font-size: 1.6rem;
+    padding: .5rem;
+    background: ${colors.darkGrey};
 
     :hover {
         cursor: pointer;
@@ -105,63 +125,74 @@ const StarContainer = styled.div`
 `
 
 const star = <FontAwesomeIcon icon={faStar} />
+const arrow = <FontAwesomeIcon icon={faArrowAltCircleRight} />
+const pin = <FontAwesomeIcon icon={faThumbtack} />
 
 const TeamContent = props => {
     //This component Takes in props from to display the information for the teams.
 
-    const [liked, setLiked] = useState(false)
-
     return (
 
-        <GameRow>
-            <GameInfo>
-                <h3>Game Info Goes Here</h3>
-                <StarContainer liked={liked} onClick={() => {
-                    setLiked(!liked)
-                    !liked ? props.makeFavorite(props.team) : props.removeFavorite(props.team)
-                }}>{star}</StarContainer>
-            </GameInfo>
-            <GameTeamColumn>
-                <Team1>
-                    <LogoContainer>
-                        <TeamLogo
-                            src={props.team.first.strTeamBadge}
-                            title={`${props.team.first.strTeam}`}
-                            alt={`${props.team.first.strTeam}`}
-                        />
-                    </LogoContainer>
-                    <TeamBet>
-                        <ButtonRow>
-                            <Button primary>-12</Button>
-                            <Button primary>420</Button>
-                            <Button primary>-123</Button>
-                        </ButtonRow>
-                    </TeamBet>
-                </Team1>
+        <>
+
+            <GameRow>
+                <PinContainer
+                    liked={props.team.favorited}
+                    onClick={_ => props.favorite(props.team)}
+                >{star}
+                </PinContainer>
+                <GameInfo>
+                    <p><strong>{props.team.first.strTeam}</strong><br />
+                        @<br />
+                        <strong>{props.team.second.strTeam}</strong>
+                    </p>
+
+                </GameInfo>
+                <GameTeamColumn>
+                    <Team1>
+                        <LogoContainer>
+                            <TeamLogo
+                                src={props.team.first.strTeamBadge}
+                                title={`${props.team.first.strTeam}`}
+                                alt={`${props.team.first.strTeam}`}
+                            />
+                        </LogoContainer>
+                        <TeamBet>
+                            <ButtonRow>
+                                <Button primary>-12</Button>
+                                <Button primary>420</Button>
+                                <Button primary>-123</Button>
+                            </ButtonRow>
+                        </TeamBet>
+                    </Team1>
 
 
-                <Team2>
-                    <LogoContainer>
-                        <TeamLogo
-                            src={props.team.second.strTeamBadge}
-                            title={`${props.team.second.strTeam}`}
-                            alt={`${props.team.second.strTeam}`}
-                        />
-                    </LogoContainer>
-                    <TeamBet>
-                        <ButtonRow>
-                            <Button primary>-12</Button>
-                            <Button primary>420</Button>
-                            <Button primary>-123</Button>
-                        </ButtonRow>
-                    </TeamBet>
-                </Team2>
-            </GameTeamColumn>
-        </GameRow>
+                    <Team2>
+                        <LogoContainer>
+                            <TeamLogo
+                                src={props.team.second.strTeamBadge}
+                                title={`${props.team.second.strTeam}`}
+                                alt={`${props.team.second.strTeam}`}
+                            />
+                        </LogoContainer>
+                        <TeamBet>
+                            <ButtonRow>
+                                <Button primary>-12</Button>
+                                <Button primary>420</Button>
+                                <Button primary>-123</Button>
+                            </ButtonRow>
+                        </TeamBet>
+                    </Team2>
+                </GameTeamColumn>
+                <ArrowContainer>{arrow}</ArrowContainer>
+            </GameRow>
 
-    );
+        </>
+
+    )
+
 }
 
 const mapStateToProps = state => ({ ...state })
 
-export default connect(mapStateToProps, { makeFavorite, removeFavorite })(TeamContent);
+export default connect(mapStateToProps, { favorite })(TeamContent)
