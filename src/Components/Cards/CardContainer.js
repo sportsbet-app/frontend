@@ -58,7 +58,8 @@ const CardContainer = props => {
         <ContainerTitle>
           <h2>Quick Bets - NFL</h2>
         </ContainerTitle>
-        <ContainerContent>
+        <ContainerContent> 
+          {/* maybe change all of these to links and add the routes in the router location(app.js) */}
           <Route path="/nfl" component={NFL} />
           <Route path="/mlb" component={MLB} />
           <Route path="/ncaa" component={NCAA} />

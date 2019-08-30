@@ -1,14 +1,15 @@
 import React from 'react';
+//import styling and assets
 import styled from 'styled-components'
-
 import nflColorImg from '../../Assets/nflColor2.jpg'
 import { colors, buttonSize } from '../../Theme/Variables'
 
+
 const Card = styled.div`
-    width: 28%;
-    background-image: url(${nflColorImg});
-    background-size: cover;
-    margin-bottom: 40px;
+  width: 28%;
+  background-image: url(${nflColorImg});
+  background-size: cover;
+  margin-bottom: 40px;
 `
 
 const CardHeader = styled.div`
@@ -40,28 +41,29 @@ const Badge = styled.img`
 `
 
 const Button = styled.button`
-    background: ${props => props.primary ? `${colors.primary}` : `${colors.primary}`};
-    padding: ${props =>
+  background: ${props => props.primary ? `${colors.primary}` : `${colors.primary}`};
+  padding: ${props =>
     props.small ? `${buttonSize.small}` : `${buttonSize.medium}`
   }
 
   :hover {
-        background: ${props => props.primary ? `${colors.secondary}` : `${colors.primary}`};
+    background: ${props => props.primary ? `${colors.secondary}` : `${colors.primary}`};
 
-        box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.42);
-        transition-timing-function: ease-in-out;
-        transition: 0.4s; 
-    }
+    box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.42);
+    transition-timing-function: ease-in-out;
+    transition: 0.4s; 
+  }
 `
 
+//This component Takes in props from the selected sports category to display the information for the upcoming games.
 const UGameCard = (props) => {
-  //This component Takes in props from to display the information for the upcoming games.
 
   console.log(props.gameInfo)
 
   return (
     <Card>
       <CardHeader>
+        {/* badge display of the two teams playing against each other */}
         <Badge
           src={props.gameInfo.first.strTeamBadge}
           title={`${props.gameInfo.first.strTeam}`}

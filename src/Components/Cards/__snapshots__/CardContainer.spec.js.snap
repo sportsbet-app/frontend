@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CardContainer /> matches snapshot 1`] = `
+<div
+  className="sc-jzJRlG bgPJAT"
+>
+  <div
+    className="sc-cSHVUG feWfX"
+  >
+    <div
+      className="sc-kAzzGY ithIdY"
+    >
+      <h2>
+        Quick Bets - NFL
+      </h2>
+    </div>
+    <div
+      className="sc-chPdSV kWeWpb"
+    />
+  </div>
+</div>
+`;
