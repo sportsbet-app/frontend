@@ -5,7 +5,6 @@ import { render } from '@testing-library/react'
 import renderer from 'react-test-renderer'
 //import the component being tested
 import BetList from './BetList'
-import BET from './Bet'
 
 //test data to use for the render
 const data = [{
