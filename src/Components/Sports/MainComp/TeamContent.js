@@ -7,7 +7,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 import styled from 'styled-components'
 import { colors, buttonSize } from '../../../Theme/Variables'
-import { makeFavorite, removeFavorite } from '../../../Actions'
+import { favorite } from '../../../Actions'
 
 const TeamLogo = styled.img`
     max-width: 80px;
@@ -113,17 +113,16 @@ const star = <FontAwesomeIcon icon={faStar} />
 const TeamContent = props => {
     //This component Takes in props from to display the information for the teams.
 
-    const [liked, setLiked] = useState(false)
-
     return (
+
         <>
 
-
             <GameRow>
-                <StarContainer liked={liked} onClick={() => {
-                    setLiked(!liked)
-                    !liked ? props.makeFavorite(props.team) : props.removeFavorite(props.team)
-                }}>{star}</StarContainer>
+                <StarContainer
+                    liked={props.team.favorited}
+                    onClick={_ => props.favorite(props.team)}
+                >{star}
+                </StarContainer>
                 <GameInfo>
                     <p><strong>{props.team.first.strTeam}</strong><br />
                         @<br />
@@ -168,10 +167,13 @@ const TeamContent = props => {
                     </Team2>
                 </GameTeamColumn>
             </GameRow>
+
         </>
-    );
+
+    )
+
 }
 
 const mapStateToProps = state => ({ ...state })
 
-export default connect(mapStateToProps, { makeFavorite, removeFavorite })(TeamContent);
+export default connect(mapStateToProps, { favorite })(TeamContent)
