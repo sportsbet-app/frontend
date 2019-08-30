@@ -11,7 +11,6 @@ import PlayerCard from './PlayerCard'
 
 const Container = styled.div`
     width: 100%;
-    border: 2px solid cyan;
     display: flex;
     flex-wrap: wrap;
 `

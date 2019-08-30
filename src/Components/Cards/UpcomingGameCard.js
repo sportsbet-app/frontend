@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components'
 
 import nflColorImg from '../../Assets/nflColor2.jpg'
-import { colors, buttonSize } from '../../Theme/Variables'
+import { colors, buttonSize, breakpoints } from '../../Theme/Variables'
 
 const Card = styled.div`
     width: 28%;
@@ -10,6 +10,10 @@ const Card = styled.div`
     background: #f5f5f5;
     background-size: cover;
     margin-bottom: 40px;
+
+    @media (max-width: ${breakpoints.tablet}) {
+        width: 90%;
+    }
 `
 
 const CardHeader = styled.div`
