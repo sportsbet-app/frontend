@@ -2,18 +2,19 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { faStar, faThumbtack } from '@fortawesome/free-solid-svg-icons'
 
 import styled from 'styled-components'
 import { colors, buttonSize } from '../../Theme/Variables'
 import { makeFavorite, removeFavorite } from '../../Actions'
 
 const FavoritesContainer = styled.div`
-    width: 96%;
+    width: 97%;
     padding: .5rem .5rem;
     margin: 0 auto;
-    margin-top: 20px;
-    background: ${colors.secondary};
+    margin-top: 40px;
+    margin-bottom: 30px;
+    background: #e7e7e7;
     color: #fff;
     display: flex;
     flex-wrap: wrap;
@@ -31,10 +32,12 @@ const FavoritesContainer = styled.div`
 const FavoriteItem = styled.div`
     display: flex;
     margin: 1.2rem;
-    ${'' /* min-width: 240px; */}
 
     :hover {
         cursor: pointer;
+        box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.42);
+        transition-timing-function: ease-in-out;
+        transition: 0.4s; 
     }
 `
 const StarContainer = styled.div`
@@ -65,6 +68,7 @@ const Vs = styled.div`
 `
 
 const star = <FontAwesomeIcon icon={faStar} />
+const pin = <FontAwesomeIcon icon={faThumbtack} />
 
 const Favorites = (props) => {
 
@@ -79,7 +83,7 @@ const Favorites = (props) => {
 
     return (
         <FavoritesContainer>
-            <h2>My Favorite Games</h2>
+            <h2>{pin} My Pinned Games</h2>
             {props.favoriteList.map(fav => <Favorite teamOne={fav.first} teamTwo={fav.second} removeFavorite={props.removeFavorite} />)}
         </FavoritesContainer>
     )
@@ -94,7 +98,7 @@ function Favorite(props) {
             <StarContainer liked={liked} onClick={() => {
                 setLiked(!liked)
                 { props.removeFavorite(props.team) }
-            }}>{star}
+            }}>{pin}
             </StarContainer>
             <GameItem>
                 <Team1>{props.teamOne.strTeam}</Team1>

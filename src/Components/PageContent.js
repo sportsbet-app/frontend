@@ -5,14 +5,17 @@ import BetSlip from './BetSlip/BetSlip'
 import styled from 'styled-components'
 import { colors, buttonSize } from '../Theme/Variables'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 import { Link, Route } from "react-router-dom";
 import './PageContent.css';
 import NFLTeam from './Sports/MainComp/NFLTeam';
 import NFLPlayers from './Sports/MainComp/NFLPlayers';
 import NFLMisc from './Sports/MainComp/NFLMisc';
+
+
+// const search = <FontAwesomeIcon icon={faSearch} />
 
 const PageContentContainer = styled.div`
   max-width: 1500px;
@@ -96,7 +99,7 @@ const SearchContainer = styled.div`
     }
   }
 `
-const search = <FontAwesomeIcon icon={faSearch} />
+
 
 const PageContent = (props) => {
   const [type, setType] = useState(1)
@@ -121,7 +124,7 @@ const PageContent = (props) => {
         </ButtonContainer>
 
         <Teams>
-          <SearchContainer><span class="fa fa-search"></span><input type="text" placeholder="Enter Team Name To Search Live & Upcoming Games" /></SearchContainer>
+          <SearchContainer><input type="text" placeholder="Enter Team Name To Search Live & Upcoming Games" /></SearchContainer>
           {(() => {
             switch (type) {
               case 1:

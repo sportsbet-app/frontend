@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar, faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons'
+import { faStar, faArrowAltCircleRight, faThumbtack } from '@fortawesome/free-solid-svg-icons'
 
 import styled from 'styled-components'
 import { colors, buttonSize } from '../../../Theme/Variables'
@@ -94,7 +94,7 @@ const Button = styled.button`
     }
 `
 
-const StarContainer = styled.div`
+const PinContainer = styled.div`
     ${'' /* max-width: 20px; */}
     display: flex;
     align-items: center;
@@ -126,6 +126,7 @@ const ArrowContainer = styled.div`
 
 const star = <FontAwesomeIcon icon={faStar} />
 const arrow = <FontAwesomeIcon icon={faArrowAltCircleRight} />
+const pin = <FontAwesomeIcon icon={faThumbtack} />
 
 const TeamContent = props => {
     //This component Takes in props from to display the information for the teams.
@@ -137,10 +138,10 @@ const TeamContent = props => {
 
 
             <GameRow>
-                <StarContainer liked={liked} onClick={() => {
+                <PinContainer liked={liked} onClick={() => {
                     setLiked(!liked)
                     !liked ? props.makeFavorite(props.team) : props.removeFavorite(props.team)
-                }}>{star}</StarContainer>
+                }}>{pin}</PinContainer>
                 <GameInfo>
                     <p><strong>{props.team.first.strTeam}</strong><br />
                         @<br />
