@@ -13,6 +13,7 @@ import './PageContent.css';
 import NFLTeam from './Sports/MainComp/NFLTeam';
 import NFLPlayers from './Sports/MainComp/NFLPlayers';
 import NFLMisc from './Sports/MainComp/NFLMisc';
+import Favorites from './Favorites/Favorites'
 
 
 // const search = <FontAwesomeIcon icon={faSearch} />
@@ -86,7 +87,9 @@ const PageContent = (props) => {
   return (
 
     <PageContentContainer>
+
       <Content>
+
         <ButtonContainer>
           <Button
             active={type === 1}
