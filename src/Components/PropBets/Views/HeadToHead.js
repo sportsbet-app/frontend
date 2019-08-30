@@ -45,6 +45,10 @@ const HeadToHead = props => {
                     onChange={(sel) => setPlayerOneSelection(sel)}
                     options={props.players}
                     isSearchable={true}
+                    theme={theme => ({
+                        ...theme,
+                        borderRadius: 0,
+                    })}
 
                 />
 
@@ -64,6 +68,10 @@ const HeadToHead = props => {
                     onChange={(sel) => setPlayerTwoSelection(sel)}
                     options={props.players}
                     isSearchable={true}
+                    theme={theme => ({
+                        ...theme,
+                        borderRadius: 0,
+                    })}
 
                 />
 
@@ -78,6 +86,10 @@ const HeadToHead = props => {
                     onChange={(sel) => setSelectedOption(sel)}
                     options={statOptions}
                     isSearchable={true}
+                    theme={theme => ({
+                        ...theme,
+                        borderRadius: 0,
+                    })}
 
                 />
 
@@ -90,6 +102,11 @@ const HeadToHead = props => {
                     onChange={(sel) => setStatType(sel)}
                     options={statTypeOption}
                     isSearchable={true}
+                    theme={theme => ({
+                        ...theme,
+                        borderRadius: 0,
+
+                    })}
 
                 />
             </CountDisplay>

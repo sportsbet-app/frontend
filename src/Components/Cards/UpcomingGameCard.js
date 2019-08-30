@@ -6,7 +6,8 @@ import { colors, buttonSize } from '../../Theme/Variables'
 
 const Card = styled.div`
     width: 28%;
-    background-image: url(${nflColorImg});
+    ${'' /* background-image: url(${nflColorImg}); */}
+    background: #f5f5f5;
     background-size: cover;
     margin-bottom: 40px;
 `
@@ -15,7 +16,7 @@ const CardHeader = styled.div`
   display: flex;
   justify-content: space-between;
   text-align: center;
-  background: ${colors.secondary};
+  background: ${colors.darkGrey};
   padding: .5rem;
   h3 {
     font-size: .8rem;

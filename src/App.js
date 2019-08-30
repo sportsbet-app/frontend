@@ -7,6 +7,7 @@ import NavBar from './PermaView/NavBar'
 import BetSlip from './Components/BetSlip/BetSlip'
 import PageContent from './Components/PageContent'
 import Favorites from './Components/Favorites/Favorites'
+import Footer from './PermaView/Footer'
 
 import CardContainer from './Components/Cards/CardContainer'
 
@@ -66,7 +67,7 @@ const NavRow = styled.div`
 `
 
 function App() {
-  const [sport,setSport] = useState('nfl')
+  const [sport, setSport] = useState('nfl')
   return (
     <div style={{ overflow: 'auto' }}>
       <SideBar />
@@ -84,11 +85,11 @@ function App() {
 
           <NavLinks>
             <NavRow activeStyle={{ textDecoration: 'underline' }}>
-              <Link to='/nfl' onClick={()=>setSport('nfl')}>NFL</Link>
-              <Link to='/mlb' onClick={()=>setSport('mlb')}>MLB</Link>
-              <Link to="/ncaa" onClick={()=>setSport('ncaa')}>NCAA</Link>
-              <Link to="/cfl" onClick={()=>setSport('cfl')}>CFL</Link>
-              <Link to="/nba" onClick={()=>setSport('nba')}>NBA</Link>
+              <Link to='/nfl' onClick={() => setSport('nfl')}>NFL</Link>
+              <Link to='/mlb' onClick={() => setSport('mlb')}>MLB</Link>
+              <Link to="/ncaa" onClick={() => setSport('ncaa')}>NCAA</Link>
+              <Link to="/cfl" onClick={() => setSport('cfl')}>CFL</Link>
+              <Link to="/nba" onClick={() => setSport('nba')}>NBA</Link>
             </NavRow>
 
             <NavRow>
@@ -104,6 +105,7 @@ function App() {
         <div id='wrap' className='wrapper'>
           <BetSlip />
         </div>
+        <Footer />
       </PageContainer>
     </div>
   )

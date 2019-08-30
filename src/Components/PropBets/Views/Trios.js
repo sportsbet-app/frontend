@@ -46,6 +46,10 @@ const Trios = props => {
                     options={props.players}
                     isSearchable={true}
                     placeholder={player}
+                    theme={theme => ({
+                        ...theme,
+                        borderRadius: 0,
+                    })}
 
                 />
 
@@ -61,6 +65,10 @@ const Trios = props => {
                     options={props.players}
                     isSearchable={true}
                     placeholder={player}
+                    theme={theme => ({
+                        ...theme,
+                        borderRadius: 0,
+                    })}
 
                 />
 
@@ -76,6 +84,10 @@ const Trios = props => {
                     options={props.players}
                     isSearchable={true}
                     placeholder={player}
+                    theme={theme => ({
+                        ...theme,
+                        borderRadius: 0,
+                    })}
 
                 />
 
@@ -92,6 +104,10 @@ const Trios = props => {
                     options={statOptions}
                     isSearchable={true}
                     placeholder={stat}
+                    theme={theme => ({
+                        ...theme,
+                        borderRadius: 0,
+                    })}
 
                 />
 
@@ -104,6 +120,10 @@ const Trios = props => {
                     onChange={(sel) => setStatType(sel)}
                     options={statTypeOption}
                     isSearchable={true}
+                    theme={theme => ({
+                        ...theme,
+                        borderRadius: 0,
+                    })}
 
                 />
             </CountDisplay>

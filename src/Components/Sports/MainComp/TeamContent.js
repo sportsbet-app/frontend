@@ -3,11 +3,12 @@ import { connect } from 'react-redux'
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { faStar, faArrowAltCircleRight, faThumbtack } from '@fortawesome/free-solid-svg-icons'
 
 import styled from 'styled-components'
 import { colors, buttonSize } from '../../../Theme/Variables'
 import { favorite } from '../../../Actions'
+
 
 const TeamLogo = styled.img`
     max-width: 80px;
@@ -93,7 +94,7 @@ const Button = styled.button`
     }
 `
 
-const StarContainer = styled.div`
+const PinContainer = styled.div`
     ${'' /* max-width: 20px; */}
     display: flex;
     align-items: center;
@@ -108,7 +109,24 @@ const StarContainer = styled.div`
     }
 `
 
+const ArrowContainer = styled.div`
+    ${'' /* max-width: 20px; */}
+    display: flex;
+    align-items: center;
+    color: ${colors.primary}
+    text-align: center;
+    font-size: 1.6rem;
+    padding: .5rem;
+    background: ${colors.darkGrey};
+
+    :hover {
+        cursor: pointer;
+    }
+`
+
 const star = <FontAwesomeIcon icon={faStar} />
+const arrow = <FontAwesomeIcon icon={faArrowAltCircleRight} />
+const pin = <FontAwesomeIcon icon={faThumbtack} />
 
 const TeamContent = props => {
     //This component Takes in props from to display the information for the teams.
@@ -118,11 +136,11 @@ const TeamContent = props => {
         <>
 
             <GameRow>
-                <StarContainer
+                <PinContainer
                     liked={props.team.favorited}
                     onClick={_ => props.favorite(props.team)}
                 >{star}
-                </StarContainer>
+                </PinContainer>
                 <GameInfo>
                     <p><strong>{props.team.first.strTeam}</strong><br />
                         @<br />
@@ -166,6 +184,7 @@ const TeamContent = props => {
                         </TeamBet>
                     </Team2>
                 </GameTeamColumn>
+                <ArrowContainer>{arrow}</ArrowContainer>
             </GameRow>
 
         </>

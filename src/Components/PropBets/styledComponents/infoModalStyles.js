@@ -1,9 +1,11 @@
 import styled from 'styled-components'
 
+import { colors } from '../../../Theme/Variables'
+
 export default styled.div`
     position: absolute;
     background: whitesmoke;
-    color: black;
+    color: ${colors.darkGrey};
     height: max-content;
     width: 15%;
     padding: 10px;

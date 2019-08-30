@@ -36,10 +36,10 @@ const StyledButton = styled.button`
 `
 
 const PropBetsContainer = styled.div`
-    background: #fff;
+    background: whitesmoke;
     color: ${colors.darkGrey};
-    border: 1px solid black;
-    padding: 1.5rem;
+    border: 1px solid #ededed;
+    ${'' /* padding: 1.5rem; */}
     cursor: default;
     min-width: 420px;
     align-self: flex-start;
@@ -52,8 +52,8 @@ const PropBetsHeader = styled.div`
     align-items: center;
     background: ${colors.secondary};
     color: whitesmoke;
-    border: 1px solid black;
-    border-radius: 5px;
+    ${'' /* border: 1px solid black; */}
+    ${'' /* border-radius: 5px; */}
     width: 100%;
     font-size: 1.5rem;
 `
@@ -79,7 +79,7 @@ const Flex = styled.div`
                             'center'
     };
     flex-direction: ${props => props.column ? 'column' : 'row'};
-    margin: 25px 0;
+    margin: 1.2rem 0;
     width: 100%;
 
     .ninety { width: 90%; }
