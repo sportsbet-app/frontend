@@ -1,11 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from 'styled-components'
 import { connect } from 'react-redux'
-import axios from 'axios';
 import Loader from 'react-loader-spinner'
 
 import TeamContent from "./TeamContent";
-
 import { colors, buttonSize } from '../../../Theme/Variables'
 
 const Container = styled.div`
@@ -29,6 +27,7 @@ const SearchContainer = styled.div`
     font-size: 1.4rem;
     color: #fff;
     border-bottom: 2px dotted ${colors.darkGrey};
+    outline: none;
 
     ::placeholder,
     ::-webkit-input-placeholder {
@@ -42,21 +41,32 @@ const SearchContainer = styled.div`
 
 const NFLTeam = props => {
 
-    if (!props.teams) return (
-        <LoaderContainer>
-            <Loader
-                type="ThreeDots"
-                color={colors.primary}
-                height={80}
-                width={80}
-            />
-        </LoaderContainer>
-    )
+  const [search, setSearch] = useState('')
 
-    else return <Container>
-        <SearchContainer><input type="text" placeholder="Enter Team Name To Search Live & Upcoming Games" /></SearchContainer>
-        {props.teams.map((pair, id) => <TeamContent key={id} team={pair} />)}
-    </Container>
+  if (!props.teams) return (
+    <LoaderContainer>
+      <Loader
+        type="ThreeDots"
+        color={colors.primary}
+        height={80}
+        width={80}
+      />
+    </LoaderContainer>
+  )
+
+  else return <Container>
+    <SearchContainer>
+      <input
+        type="text"
+        placeholder="Enter Team Name To Search Live & Upcoming Games"
+        onChange={e => setSearch(e.target.value)}
+      />
+    </SearchContainer>
+    {search.split().length ?
+      props.teams.slice().filter(pair => pair.first.strTeam.toLowerCase().includes(search.toLowerCase()) || pair.second.strTeam.toLowerCase().includes(search.toLowerCase())).map((pair, id) => <TeamContent key={id} team={pair} />)
+      :
+      props.teams.map((pair, id) => <TeamContent key={id} team={pair} />)}
+  </Container>
 
 }
 

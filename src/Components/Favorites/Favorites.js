@@ -86,6 +86,7 @@ const Favorites = props => {
         <FavoritesContainer>
             <h2>{pin} My Pinned Games</h2>
             {props.favoriteList.length && props.favoriteList.map(fav => <Favorite
+                key={fav.first.idTeam}
                 pair={fav}
                 favorite={props.favorite}
             />)}
@@ -108,7 +109,7 @@ function Favorite(props) {
             <GameItem>
                 <Team1>{props.pair.first.strTeam}</Team1>
                 <Vs>VERSUS</Vs>
-                <Team2>{props.pair.second.strTeam}`}</Team2>
+                <Team2>{props.pair.second.strTeam}</Team2>
             </GameItem>
         </FavoriteItem>
     )
