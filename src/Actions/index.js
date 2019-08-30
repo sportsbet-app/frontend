@@ -9,11 +9,14 @@ export const
   FETCH_DATA_START = 'FETCH_DATA_START',
   FETCH_DATA_SUCCESS = 'FETCH_DATA_SUCCESS',
   FETCH_DATA_FAILURE = 'FETCH_DATA_FAILURE',
+  TEAM_DATA_START = 'TEAM_DATA_START',
   TEAM_DATA_SUCCESS = 'TEAM_DATA_SUCCESS',
   TEAM_DATA_FAILURE = 'TEAM_DATA_FAILURE',
   CONFIRM_BET = 'CONFIRM_BET',
   DELETE_BET = 'DELETE_BET',
-  TEAM_SUCCESS = 'TEAM-SUCESS',
+  TEAM_SUCCESS_START = 'TEAM_SUCCESS_START',
+  TEAM_SUCCESS = 'TEAM_SUCCESS',
+  TEAM_SUCCESS_FAILURE = 'TEAM_SUCCESS_FAILURE',
   FAVORITE = 'FAVORITE'
 
 export const getData = sport => dispatch => {
@@ -32,6 +35,8 @@ export const getData = sport => dispatch => {
 }
 
 export const teamData = _ => dispatch => {
+
+  dispatch({ type: TEAM_DATA_START })
 
   axios
     .get(NFL)
@@ -54,12 +59,15 @@ export const teamData = _ => dispatch => {
 
 export const team = id => dispatch => {
 
+  dispatch ({ type: TEAM_SUCCESS_START })
+
   axios
     .get(`${players}${id}`)
     .then(res => {
       console.log('team action', res.data)
       dispatch({ type: TEAM_SUCCESS, payload: res.data })
     })
+    .catch(err => ({ type: TEAM_SUCCESS_FAILURE, payload: err.response}))
 
 }
 
