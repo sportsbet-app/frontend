@@ -1,4 +1,4 @@
-import { CONFIRM_BET, DELETE_BET, TEAM_DATA_SUCCESS, TEAM_DATA_FAILURE, MAKE_FAVORITE, REMOVE_FAVORITE } from "../Actions"
+import { CONFIRM_BET, DELETE_BET, TEAM_DATA_SUCCESS, TEAM_DATA_FAILURE, FAVORITE, REMOVE_FAVORITE } from "../Actions"
 
 const initialState = {
     bet: {},
@@ -47,15 +47,22 @@ export default (state = initialState, action) => {
                 ...state,
                 error: action.payload
             }
-        case MAKE_FAVORITE:
+        case FAVORITE:
+            const newList = [
+                ...state.nflTeamData.map(pair => {
+                    if (pair.first.idTeam === action.payload.first.idTeam && pair.second.idTeam === action.payload.second.idTeam) {
+                        return {
+                            ...pair,
+                            favorited: !pair.favorited
+                        }
+                    }
+                    return pair
+                })
+            ]
             return {
                 ...state,
-                favoriteList: [...state.favoriteList, action.payload]
-            }
-        case REMOVE_FAVORITE:
-            return {
-                ...state,
-                favoriteList: state.favoriteList.filter(fav => (action.payload.first.idTeam && action.payload.second.idTeam) !== (fav.first.idTeam && fav.second.idTeam))
+                favoriteList: newList.filter(fav => fav.favorited === true),
+                nflTeamData: newList
             }
         default:
             return state

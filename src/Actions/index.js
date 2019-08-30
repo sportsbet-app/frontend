@@ -13,8 +13,7 @@ export const FETCH_DATA_START = 'FETCH_DATA_START',
   CONFIRM_BET = 'CONFIRM_BET',
   DELETE_BET = 'DELETE_BET',
   TEAM_SUCCESS = 'TEAM-SUCESS',
-  MAKE_FAVORITE = 'MAKE_FAVORITE',
-  REMOVE_FAVORITE = 'REMOVE_FAVORITE'
+  FAVORITE = 'FAVORITE'
 
 export const getData = sport => dispatch => {
 
@@ -40,7 +39,8 @@ export const teamData = _ => dispatch => {
       for (let i = 0; i < res.data.teams.length - 1; i += 2) {
         teams.push({
           first: res.data.teams[i],
-          second: res.data.teams[i + 1]
+          second: res.data.teams[i + 1],
+          favorited: false
         })
       }
       dispatch({ type: TEAM_DATA_SUCCESS, payload: teams })
@@ -68,6 +68,4 @@ export const confirmBet = bet => ({ type: CONFIRM_BET, payload: bet })
 //function to delete selected bet by ID through action dispatch
 export const deleteBet = (bet, id) => ({ type: DELETE_BET, payload: { bet, id } })
 
-export const makeFavorite = game => ({ type: MAKE_FAVORITE, payload: game })
-
-export const removeFavorite = game => ({ type: REMOVE_FAVORITE, payload: game })
+export const favorite = game => ({ type: FAVORITE, payload: game })
