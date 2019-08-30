@@ -139,7 +139,7 @@ const TeamContent = props => {
                 <PinContainer
                     liked={props.team.favorited}
                     onClick={_ => props.favorite(props.team)}
-                >{star}
+                >{pin}
                 </PinContainer>
                 <GameInfo>
                     <p><strong>{props.team.first.strTeam}</strong><br />
