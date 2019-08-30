@@ -52,14 +52,14 @@ const Favorites = (props) => {
 }
 
 function Favorite(props) {
-
+    console.log('favprops', props)
     const [liked, setLiked] = useState(true)
 
     return (
         <FavoriteItem>
             <StarContainer liked={liked} onClick={() => {
                 setLiked(!liked)
-                { props.removeFavorite(props.team) }
+                { props.removeFavorite(props) }
             }}>{star}
             </StarContainer>
             <GameItem>

@@ -55,7 +55,7 @@ export default (state = initialState, action) => {
         case REMOVE_FAVORITE:
             return {
                 ...state,
-                favoriteList: state.favoriteList.filter(fav => (action.payload.first.idTeam && action.payload.second.idTeam) !== (fav.first.idTeam && fav.second.idTeam))
+                favoriteList: state.favoriteList.filter(fav => (action.payload.teamOne.idTeam && action.payload.teamTwo.idTeam) !== (fav.first.idTeam && fav.second.idTeam))
             }
         default:
             return state

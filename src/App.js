@@ -66,11 +66,11 @@ const NavRow = styled.div`
 `
 
 function App() {
-  const [sport,setSport] = useState('nfl')
+  const [sport, setSport] = useState('nfl')
   return (
     <div style={{ overflow: 'auto' }}>
+
       <SideBar />
-      <HomePage />
       <PageContainer>
         <GlobalStyle />
 
@@ -84,11 +84,11 @@ function App() {
 
           <NavLinks>
             <NavRow activeStyle={{ textDecoration: 'underline' }}>
-              <Link to='/nfl' onClick={()=>setSport('nfl')}>NFL</Link>
-              <Link to='/mlb' onClick={()=>setSport('mlb')}>MLB</Link>
-              <Link to="/ncaa" onClick={()=>setSport('ncaa')}>NCAA</Link>
-              <Link to="/cfl" onClick={()=>setSport('cfl')}>CFL</Link>
-              <Link to="/nba" onClick={()=>setSport('nba')}>NBA</Link>
+              <Link to='/nfl' onClick={() => setSport('nfl')}>NFL</Link>
+              <Link to='/mlb' onClick={() => setSport('mlb')}>MLB</Link>
+              <Link to="/ncaa" onClick={() => setSport('ncaa')}>NCAA</Link>
+              <Link to="/cfl" onClick={() => setSport('cfl')}>CFL</Link>
+              <Link to="/nba" onClick={() => setSport('nba')}>NBA</Link>
             </NavRow>
 
             <NavRow>

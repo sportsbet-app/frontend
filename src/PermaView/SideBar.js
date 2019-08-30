@@ -1,49 +1,56 @@
 import React from 'react';
+import Search from "../Components/Search";
 import { slide as Menu } from 'react-burger-menu';
 
 export default props => {
   return (
-    <Menu>
-      
-      <a className="menu-item" href="/">
-        Live Betting
+    <div>
+
+
+      <Menu>
+
+        <Search />
+
+        <a className="menu-item" href="/">
+          Live Betting
       </a>
 
-      <a className="menu-item" href="/">
-        Upcoming
+        <a className="menu-item" href="/">
+          Upcoming
       </a>
 
-      <a className="menu-item" href="">
-        NFL
+        <a className="menu-item" href="">
+          NFL
       </a>
 
-      <a className="menu-item" href="">
-        MLB
+        <a className="menu-item" href="">
+          MLB
       </a>
 
-      <a className="menu-item" href="">
-        NCAA
+        <a className="menu-item" href="">
+          NCAA
       </a>
 
-      <a className="menu-item" href="">
-        CFL
+        <a className="menu-item" href="">
+          CFL
       </a>
 
-      <a className="menu-item" href="">
-        NBA
+        <a className="menu-item" href="">
+          NBA
       </a>
 
-      <a className="menu-item" href="https://www.vegas.com/gaming/gaming-tips/sports-betting/">
-        Rules and How to bet 
+        <a className="menu-item" href="https://www.vegas.com/gaming/gaming-tips/sports-betting/">
+          Rules and How to bet
       </a>
 
-      <a className="menu-item" href="">
-        NBA
+        <a className="menu-item" href="">
+          NBA
       </a>
 
-      <a className="menu-item" href="">
-        NBA
+        <a className="menu-item" href="">
+          NBA
       </a>
-    </Menu>
+      </Menu>
+    </div>
   );
 };
