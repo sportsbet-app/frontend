@@ -4,7 +4,7 @@ import Loader from 'react-loader-spinner'
 import { connect } from 'react-redux'
 
 import styled from 'styled-components'
-import { colors, buttonSize } from '../../Theme/Variables'
+import { colors, buttonSize, breakpoints } from '../../Theme/Variables'
 
 const Container = styled.div`
     width: 100%;
@@ -12,6 +12,7 @@ const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
 `
 
 const Card = styled.div`

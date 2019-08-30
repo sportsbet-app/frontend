@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { Link, Route } from "react-router-dom";
 
@@ -18,9 +19,10 @@ import { colors, buttonSize } from '../../Theme/Variables'
 //overall container
 const CardHolder = styled.div`
   max-width: 100%;
-  background: linear-gradient(to top, ${colors.darkGrey}, ${colors.darkGrey});
+  background: linear-gradient(to bottom, ${colors.secondary}, #3b4951);
   color: #fff;
 `
+
 
 const Card = styled.div`
   width: 100%;
@@ -28,18 +30,17 @@ const Card = styled.div`
 
 //styling for the page heading/title
 const ContainerTitle = styled.div`
-  background-color: ${colors.primary};
-  color: #fff;
-  width: 60%;
-  max-height: 38px;
-  display: flex;
-  align-items: center;
-  margin-bottom: 40px;
-
-  h2 {
-    font-size: 1.4rem;
-    padding-left: 1.2rem;
-    text-transform: uppercase;
+background-color: ${colors.primary};
+color: #fff;
+width: 60%;
+max-height: 38px;
+display: flex;
+align-items: center;
+margin-bottom: 40px;
+    h2 {
+        font-size: 1.4rem;
+        padding-left: 1.2rem;
+        text-transform: uppercase;
     }
 `
 
