@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import PropBets from './PropBets/PropBets'
 import BetSlip from './BetSlip/BetSlip'
+
 import styled from 'styled-components'
 import { colors, buttonSize } from '../Theme/Variables'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
+
 import { Link, Route } from "react-router-dom";
 import './PageContent.css';
 import NFLTeam from './Sports/MainComp/NFLTeam';
@@ -69,8 +74,33 @@ const Button = styled.button`
   }
 `
 
+const SearchContainer = styled.div`
+  margin: 4rem 2rem;
+
+  
+  input {
+    width: 500px;
+    border: 0;
+    height: 40px;
+    background: ${colors.secondary};
+    font-size: 1.4rem;
+    color: #fff;
+    border-bottom: 2px dotted ${colors.darkGrey};
+
+    ::placeholder,
+    ::-webkit-input-placeholder {
+      color: #fff;
+    }
+    :-ms-input-placeholder {
+      color: #fff;
+    }
+  }
+`
+const search = <FontAwesomeIcon icon={faSearch} />
+
 const PageContent = (props) => {
   const [type, setType] = useState(1)
+
   return (
 
     <PageContentContainer>
@@ -79,7 +109,7 @@ const PageContent = (props) => {
           <Button
             active={type === 1}
             onClick={() => setType(1)}
-          >Teams</Button>
+          >Live Games</Button>
           <Button
             active={type === 2}
             onClick={() => setType(2)}
@@ -91,6 +121,7 @@ const PageContent = (props) => {
         </ButtonContainer>
 
         <Teams>
+          <SearchContainer><span class="fa fa-search"></span><input type="text" placeholder="Enter Team Name To Search Live & Upcoming Games" /></SearchContainer>
           {(() => {
             switch (type) {
               case 1:

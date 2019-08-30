@@ -15,22 +15,55 @@ const FavoritesContainer = styled.div`
     margin-top: 20px;
     background: ${colors.secondary};
     color: #fff;
+    display: flex;
+    flex-wrap: wrap;
 
+    h2 {
+        color: ${colors.primary};
+        width: 100%;
+        padding-left: .75rem;
+    }
     p {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
     }
 `
 
 const FavoriteItem = styled.div`
     display: flex;
+    margin: 1.2rem;
+    ${'' /* min-width: 240px; */}
+
+    :hover {
+        cursor: pointer;
+    }
 `
 const StarContainer = styled.div`
 color: ${props => props.liked ? colors.primary : "#bdbdbd"};
+background: ${colors.darkGrey};
+display: flex;
+align-items: center;
+padding: .5rem;
 `
 
 const GameItem = styled.div`
-
+    background: #fff;
+    color: ${colors.secondary};
+    font-size: 1.4rem;
+    padding: .5rem .5rem;
+    text-align: center;
+    min-width: 220px;
 `
+const Team1 = styled.div`
+    font-weight: bold;
+`
+const Team2 = styled.div`
+ font-weight: bold;
+`
+const Vs = styled.div`
+    font-size: .8rem;
+    padding: .25rem 0;
+`
+
 const star = <FontAwesomeIcon icon={faStar} />
 
 const Favorites = (props) => {
@@ -46,6 +79,7 @@ const Favorites = (props) => {
 
     return (
         <FavoritesContainer>
+            <h2>My Favorite Games</h2>
             {props.favoriteList.map(fav => <Favorite teamOne={fav.first} teamTwo={fav.second} removeFavorite={props.removeFavorite} />)}
         </FavoritesContainer>
     )
@@ -63,7 +97,9 @@ function Favorite(props) {
             }}>{star}
             </StarContainer>
             <GameItem>
-                {`${props.teamOne.strTeam} VERSUS ${props.teamTwo.strTeam}`}
+                <Team1>{props.teamOne.strTeam}</Team1>
+                <Vs>VERSUS</Vs>
+                <Team2>{props.teamTwo.strTeam}</Team2>
             </GameItem>
         </FavoriteItem>
     )

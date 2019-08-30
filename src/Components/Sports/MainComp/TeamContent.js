@@ -3,11 +3,12 @@ import { connect } from 'react-redux'
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { faStar, faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons'
 
 import styled from 'styled-components'
 import { colors, buttonSize } from '../../../Theme/Variables'
 import { makeFavorite, removeFavorite } from '../../../Actions'
+
 
 const TeamLogo = styled.img`
     max-width: 80px;
@@ -108,7 +109,23 @@ const StarContainer = styled.div`
     }
 `
 
+const ArrowContainer = styled.div`
+    ${'' /* max-width: 20px; */}
+    display: flex;
+    align-items: center;
+    color: ${colors.primary}
+    text-align: center;
+    font-size: 1.6rem;
+    padding: .5rem;
+    background: ${colors.darkGrey};
+
+    :hover {
+        cursor: pointer;
+    }
+`
+
 const star = <FontAwesomeIcon icon={faStar} />
+const arrow = <FontAwesomeIcon icon={faArrowAltCircleRight} />
 
 const TeamContent = props => {
     //This component Takes in props from to display the information for the teams.
@@ -167,6 +184,7 @@ const TeamContent = props => {
                         </TeamBet>
                     </Team2>
                 </GameTeamColumn>
+                <ArrowContainer>{arrow}</ArrowContainer>
             </GameRow>
         </>
     );
