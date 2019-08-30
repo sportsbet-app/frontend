@@ -102,9 +102,6 @@ function App() {
         <CardContainer />
         <Favorites />
         <PageContent sport={sport} />
-        <div id='wrap' className='wrapper'>
-          <BetSlip />
-        </div>
         <Footer />
       </PageContainer>
     </div>

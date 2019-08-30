@@ -20,13 +20,6 @@ const HeadToHead = props => {
         setPlayerOneSelection(null)
         setPlayerTwoSelection(null)
     }
-    const displayBetSlip = () => {
-        const container = document.getElementById('wrap')
-        if (container.className.length !== 0) {
-            container.classList.toggle('wrapper')
-        }
-
-    }
 
     const rotate = <FontAwesomeIcon icon={faSyncAlt} />
     const player = <FontAwesomeIcon icon={faUser} />
@@ -124,7 +117,6 @@ const HeadToHead = props => {
                             playerCount: 2
                         })
                         clearOptions()
-                        displayBetSlip()
                     }}>Send To Betslip</StyledButton>
             </Flex>
 
