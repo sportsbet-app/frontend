@@ -5,7 +5,8 @@ import axios from 'axios'
 import urls from '../Assets/urls'
 const { CFL, NBA, NCAA, NFL, MLB, players } = urls
 
-export const FETCH_DATA_START = 'FETCH_DATA_START',
+export const 
+  FETCH_DATA_START = 'FETCH_DATA_START',
   FETCH_DATA_SUCCESS = 'FETCH_DATA_SUCCESS',
   FETCH_DATA_FAILURE = 'FETCH_DATA_FAILURE',
   TEAM_DATA_SUCCESS = 'TEAM_DATA_SUCCESS',
