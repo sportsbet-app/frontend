@@ -10,10 +10,10 @@ import UGameCard from './UpcomingGameCard'
 
 //create test data for the rendering
 const data = {
-  first: [{strTeamBadge: {nflColorImg2}},
-    {strTeam: 'title1'}],
-  second: [{strTeamBadge: {nflColorImg}},
-    {strTeam: 'title2'}],
+  first: [{ strTeamBadge: { nflColorImg2 } },
+  { strTeam: 'title1' }],
+  second: [{ strTeamBadge: { nflColorImg } },
+  { strTeam: 'title2' }],
   date: Date.now(),
   time: '3pm eastern'
 }
@@ -21,18 +21,15 @@ const data = {
 //test to check that the app will display when called.
 describe('<UGameCard />', () => {
   it('should display', () => {
-    //render the component
-    render(<UGameCard gameInfo = { data } />)
+    let load = render(<UGameCard />)
+
   })
 
   //create a snapshot
   it('matches snapshot', () => {
-    const tree = renderer.create(<UGameCard gameInfo = { data }  />); // generates a DOM tree
+    const tree = renderer.create(<UGameCard gameInfo={data} />); // generates a DOM tree
 
     // snapshots are a JSON representation of the DOM tree
     expect(tree.toJSON()).toMatchSnapshot();
   });
-
-  //check that data is properly displayed 
-
 })

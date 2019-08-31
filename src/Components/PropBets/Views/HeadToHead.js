@@ -9,35 +9,30 @@ import { StyledButton, Descriptor, Flex, CountDisplay } from '../styledComponent
 
 //collecting props from Prop form for this functional component
 const HeadToHead = props => {
-  //setup state variables  
   const [count, setCount] = useState(0)
   const [statType, setStatType] = useState(statTypeOption[0])
   const [selectedOption, setSelectedOption] = useState(null)
   const [playerOneSelection, setPlayerOneSelection] = useState(null)
   const [playerTwoSelection, setPlayerTwoSelection] = useState(null)
 
-  //function to reset state
+
   const clearOptions = _ => {
     setCount(0)
     setSelectedOption(null)
     setPlayerOneSelection(null)
     setPlayerTwoSelection(null)
   }
-  //find the item with an id of wrap and toggle the class if there is no class on the htmlelement that is calling this function
-  const displayBetSlip = () => {
-    const container = document.getElementById('wrap')
-    if (container.className.length !== 0) {
-      container.classList.toggle('wrapper')
-    }
-  }
-  //variables to take in icon images for styling
+
   const rotate = <FontAwesomeIcon icon={faSyncAlt} />
   const player = <FontAwesomeIcon icon={faUser} />
   const stat = <FontAwesomeIcon icon={faChartLine} />
 
   return (
+
     <>
+
       <Flex column>
+
         <Select
           className='ninety'
           placeholder={player}
@@ -45,6 +40,11 @@ const HeadToHead = props => {
           onChange={(sel) => setPlayerOneSelection(sel)}
           options={props.players}
           isSearchable={true}
+          theme={theme => ({
+            ...theme,
+            borderRadius: 0,
+          })}
+
         />
 
         <Flex >
@@ -63,10 +63,17 @@ const HeadToHead = props => {
           onChange={(sel) => setPlayerTwoSelection(sel)}
           options={props.players}
           isSearchable={true}
+          theme={theme => ({
+            ...theme,
+            borderRadius: 0,
+          })}
+
         />
+
       </Flex>
 
       <Flex>
+
         <Select
           className='ninety'
           placeholder={stat}
@@ -74,7 +81,13 @@ const HeadToHead = props => {
           onChange={(sel) => setSelectedOption(sel)}
           options={statOptions}
           isSearchable={true}
+          theme={theme => ({
+            ...theme,
+            borderRadius: 0,
+          })}
+
         />
+
       </Flex>
 
       <CountDisplay>
@@ -84,6 +97,11 @@ const HeadToHead = props => {
           onChange={(sel) => setStatType(sel)}
           options={statTypeOption}
           isSearchable={true}
+          theme={theme => ({
+            ...theme,
+            borderRadius: 0,
+
+          })}
 
         />
       </CountDisplay>
@@ -101,11 +119,13 @@ const HeadToHead = props => {
               playerCount: 2
             })
             clearOptions()
-            displayBetSlip()
           }}>Send To Betslip</StyledButton>
       </Flex>
+
     </>
+
   )
+
 }
 
 export default HeadToHead

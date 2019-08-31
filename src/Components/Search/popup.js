@@ -11,20 +11,20 @@ export default class Popup extends React.Component {
         if (!isOpen) return null;
         return (
             <div className="popup">
-            <div className="container">
-            <div className="content">
-            {items && 
-            items.map((item, idx) =>{
-                return (
-                    <div className="item" key={idx}>
-               {item.name}
-               </div>
-                );
-            })}
-            {!items && <div className="warning">Nothing found!</div>}
-            </div>
-            <div className="footer">Type Keyword for help</div>
-            </div>
+                <div className="container">
+                    <div className="content">
+                        {items &&
+                            items.map((item, idx) => {
+                                return (
+                                    <div className="item" key={idx}>
+                                        {item.name}
+                                    </div>
+                                );
+                            })}
+                        {!items && <div className="warning">Nothing found!</div>}
+                    </div>
+                    <div className="footer">Type Keyword for help</div>
+                </div>
             </div>
         )
     }

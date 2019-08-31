@@ -19,9 +19,10 @@ import { colors, buttonSize } from '../../Theme/Variables'
 //overall container
 const CardHolder = styled.div`
   max-width: 100%;
-  background: linear-gradient(to top, ${colors.darkGrey}, ${colors.darkGrey});
+  background: linear-gradient(to bottom, ${colors.secondary}, #3b4951);
   color: #fff;
 `
+
 
 const Card = styled.div`
   width: 100%;
@@ -29,7 +30,7 @@ const Card = styled.div`
 
 //styling for the page heading/title
 const ContainerTitle = styled.div`
-<<<<<<< HEAD
+
   background-color: ${colors.primary};
   color: #fff;
   width: 60%;
@@ -42,21 +43,7 @@ const ContainerTitle = styled.div`
     font-size: 1.4rem;
     padding-left: 1.2rem;
     text-transform: uppercase;
-=======
-background-color: ${colors.primary};
-color: #fff;
-width: 60%;
-max-height: 38px;
-display: flex;
-align-items: center;
-margin-bottom: 40px;
-    h2 {
-        font-size: 1.4rem;
-        padding-left: 1.2rem;
-        text-transform: uppercase;
->>>>>>> 71b572c01d5099fbd9a1e6efa21f92b7e599b777
-    }
-`
+  }`
 
 const ContainerContent = styled.div`
   margin: 0 auto;
@@ -73,7 +60,7 @@ const CardContainer = props => {
         <ContainerTitle>
           <h2>Quick Bets - NFL</h2>
         </ContainerTitle>
-        <ContainerContent> 
+        <ContainerContent>
           {/* maybe change all of these to links and add the routes in the router location(app.js) */}
           <Route path="/nfl" component={NFL} />
           <Route path="/mlb" component={MLB} />

@@ -12,12 +12,12 @@ import CardContainer from './CardContainer'
 describe('<CardContainer />', () => {
   it('should display', () => {
     //render the component
-    render(<Router><CardContainer/></Router>)
-    
+    render(<CardContainer />)
+
   })
   //create a snapshot
   it('matches snapshot', () => {
-    const tree = renderer.create(<Router><CardContainer/></Router>); // generates a DOM tree
+    const tree = renderer.create(<Router><CardContainer /></Router>); // generates a DOM tree
 
     // snapshots are a JSON representation of the DOM tree
     expect(tree.toJSON()).toMatchSnapshot();

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faThumbtack } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
 
-import { colors, buttonSize } from '../../../Theme/Variables'
+import { colors } from '../../../Theme/Variables'
 
 const PlayerContainer = styled.div`
     display: flex;

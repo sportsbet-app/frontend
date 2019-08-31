@@ -18,7 +18,6 @@ const BetSlip = (props) => {
   return (
     <Flex column>
       <BetList bet={props.confirmedBets} delete={props.deleteBet} />
-      //ternary for if you have made bets or not, if not ask to make a bet
       {props.confirmedBets.length === 0 ? <p> Please Place Bet </p> : <QrCode bet={props.confirmedBets} />}
     </Flex>
   )

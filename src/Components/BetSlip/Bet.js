@@ -6,12 +6,10 @@ export default function BET(props) {
   //check the player count and run through an if statement based on the amount
   if (props.bet.playerCount === 1) return (
     <div>
-      //price value of the selected player
       <h1> Player : {props.bet.playerSelectedOption.value}</h1>
 
-      //run down of the information for the bet. (type of bet, the bet number and the players value )
       <p> {props.bet.prop} : {props.bet.count}  {props.bet.selectedOption.value}</p>
-      //button to cancel the selected bet
+
       <button onClick={() => { props.delete(props.bet, props.id) }}
         style={{ color: 'black' }}
 

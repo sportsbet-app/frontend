@@ -112,8 +112,6 @@ function App() {
           <div id='wrap' className='wrapper'><BetSlip /></div>
         </TopContent>
         <PageContent sport={sport} />
-
-
         <Footer />
       </PageContainer>
     </div>
