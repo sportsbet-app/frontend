@@ -5,7 +5,7 @@ exports[`<FavoritesContainer /> matches snapshot 1`] = `
   className="sc-bdVaJa ejjpCE"
 >
   <p>
-    undefined VERSUS undefined
+    first image VERSUS some image
   </p>
 </div>
 `;
