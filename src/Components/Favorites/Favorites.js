@@ -9,7 +9,7 @@ import { colors, buttonSize } from '../../Theme/Variables'
 import { favorite } from '../../Actions'
 
 const FavoritesContainer = styled.div`
-    width: 97%;
+    width: 57%;
     padding: .5rem .5rem;
     margin: 0 auto;
     margin-top: 40px;
@@ -104,7 +104,7 @@ function Favorite(props) {
             <StarContainer
                 liked={props.pair.favorited}
                 onClick={_ => props.favorite(props.pair)}
-            >{star}
+            >{pin}
             </StarContainer>
             <GameItem>
                 <Team1>{props.pair.first.strTeam}</Team1>

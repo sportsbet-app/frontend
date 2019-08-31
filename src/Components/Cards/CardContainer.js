@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { Link, Route } from "react-router-dom";
 
@@ -28,6 +29,7 @@ const Card = styled.div`
 
 //styling for the page heading/title
 const ContainerTitle = styled.div`
+<<<<<<< HEAD
   background-color: ${colors.primary};
   color: #fff;
   width: 60%;
@@ -40,6 +42,19 @@ const ContainerTitle = styled.div`
     font-size: 1.4rem;
     padding-left: 1.2rem;
     text-transform: uppercase;
+=======
+background-color: ${colors.primary};
+color: #fff;
+width: 60%;
+max-height: 38px;
+display: flex;
+align-items: center;
+margin-bottom: 40px;
+    h2 {
+        font-size: 1.4rem;
+        padding-left: 1.2rem;
+        text-transform: uppercase;
+>>>>>>> 71b572c01d5099fbd9a1e6efa21f92b7e599b777
     }
 `
 
