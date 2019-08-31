@@ -1,7 +1,6 @@
 import React from 'react'
 //import dependencies for tests
 import { render } from '@testing-library/react'
-import { shallow } from 'enzyme'
 import { Provider } from 'react-redux'
 //import renderer for snapshot
 import renderer from 'react-test-renderer'
@@ -43,13 +42,20 @@ const data = [{
   count: 3
 }]
 
+const store = {
+  getState: jest.fn(),
+  subscribe: jest.fn(),
+  dispatch: jest.fn(),
+
+}
+
 const empty = []
 
 //test to check that the app will display when called.
 describe('<BetSlip />', () => {
   it('should display', () => {
     //render with test data
-    render(<Provider store = {data[0]} ><BetSlip confirmedBets = { data } /></Provider>)
+    render(<Provider store = {store} ><BetSlip confirmedBets = { data } /></Provider>)
     
   })
 
