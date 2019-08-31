@@ -1,7 +1,7 @@
 import {
     CONFIRM_BET, DELETE_BET, TEAM_DATA_START, TEAM_DATA_SUCCESS,
     TEAM_DATA_FAILURE, TEAM_SUCCESS_START, TEAM_SUCCESS, TEAM_SUCCESS_FAILURE,
-    FAVORITE, REMOVE_FAVORITE
+    FAVORITE
 } from "../Actions"
 
 const initialState = {
@@ -10,7 +10,8 @@ const initialState = {
     nflTeamData: [],
     error: null,
     favoriteList: [],
-    isLoading: false
+    isLoading: false,
+    playerList: []
 }
 
 export default (state = initialState, action) => {
@@ -20,27 +21,14 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 bet: action.payload,
-                isLoading: false,
-                confirmedBets: [...state.confirmedBets, action.payload].filter(item => {
-                    if (Object.keys(item).length !== 0) {
-                        return item
-
-                    }
-
-                })
+                confirmedBets: [...state.confirmedBets, action.payload].filter(item => { if (Object.keys(item).length !== 0) return item })
             }
+
         case DELETE_BET:
             console.log(' in reducer', action.payload)
             return {
                 ...state,
-                isLoading: false,
-                confirmedBets: state.confirmedBets.filter((item, index) => {
-                    console.log(item)
-                    if (index !== action.payload.id) {
-                        return item
-                    }
-
-                })
+                confirmedBets: state.confirmedBets.filter((item, index) => { if (index !== action.payload.id) return item })
             }
 
         case TEAM_DATA_START:
@@ -49,6 +37,7 @@ export default (state = initialState, action) => {
                 error: '',
                 isLoading: true,
             }
+
         case TEAM_DATA_SUCCESS:
             console.log(action.payload)
             return {
@@ -56,6 +45,7 @@ export default (state = initialState, action) => {
                 isLoading: false,
                 nflTeamData: action.payload
             }
+
         case TEAM_DATA_FAILURE:
             console.log(action.payload)
             return {
@@ -63,27 +53,29 @@ export default (state = initialState, action) => {
                 isLoading: false,
                 error: action.payload
             }
+
         case TEAM_SUCCESS_START:
             return {
                 ...state,
                 error: '',
                 isLoading: true,
             }
+
         case TEAM_SUCCESS:
             return {
                 ...state,
                 isLoading: false,
-                // is this where data should go?
-                nflTeamData: action.payload
+                playerList: action.payload
             }
+
         case TEAM_SUCCESS_FAILURE:
             return {
                 ...state,
                 isLoading: false,
                 error: action.payload
             }
-        case FAVORITE:
 
+        case FAVORITE:
             const newList = [
                 ...state.nflTeamData.map(pair => {
                     if (pair.first.idTeam === action.payload.first.idTeam && pair.second.idTeam === action.payload.second.idTeam) {
@@ -101,7 +93,9 @@ export default (state = initialState, action) => {
                 favoriteList: newList.filter(fav => fav.favorited === true),
                 nflTeamData: newList
             }
+
         default:
             return state
+
     }
 }

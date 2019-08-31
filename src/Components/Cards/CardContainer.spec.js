@@ -9,8 +9,8 @@ import CardContainer from './CardContainer'
 describe('<CardContainer />', () => {
   it('should display', () => {
     //render the component
-    render(<CardContainer/>)
-    
+    render(<CardContainer />)
+
   })
   //create a snapshot
   it('matches snapshot', () => {

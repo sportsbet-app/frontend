@@ -1,8 +1,8 @@
 import React from "react";
 
-const NFLMisc= () => {
+const NFLMisc = () => {
 
-    return(
+    return (
         <div>NFL Misc</div>
     )
 

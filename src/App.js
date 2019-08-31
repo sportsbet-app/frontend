@@ -34,6 +34,7 @@ const NavContainer = styled.div`
   flex-direction: row;
   padding: 0 2rem;
   padding-bottom: 1.4rem;
+  border-bottom: 1px dotted ${colors.secondary};
 `
 
 const NavLinks = styled.div`
@@ -64,6 +65,12 @@ const NavRow = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: baseline;
+`
+
+const TopContent = styled.div`
+width: 98%;
+display: flex;
+justify-content: space-around;
 `
 
 function App() {
@@ -99,8 +106,11 @@ function App() {
 
         </NavContainer>
 
-        <CardContainer />
-        <Favorites />
+        {/* <CardContainer /> */}
+        <TopContent>
+          <div><Favorites /></div>
+          <div id='wrap' className='wrapper'><BetSlip /></div>
+        </TopContent>
         <PageContent sport={sport} />
         <Footer />
       </PageContainer>

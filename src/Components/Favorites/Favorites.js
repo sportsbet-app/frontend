@@ -9,7 +9,7 @@ import { colors, buttonSize } from '../../Theme/Variables'
 import { favorite } from '../../Actions'
 
 const FavoritesContainer = styled.div`
-    width: 97%;
+    width: 57%;
     padding: .5rem .5rem;
     margin: 0 auto;
     margin-top: 40px;

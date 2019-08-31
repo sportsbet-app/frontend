@@ -11,7 +11,7 @@ const data = [{
   playerCount: 1,
   playerSelectedOption: { value: 'zero' },
   selectedOption: { value: '0' },
-  prop:  'testing',
+  prop: 'testing',
   count: 3
 },
 {
@@ -19,7 +19,7 @@ const data = [{
   playerOneSelection: { value: 'one' },
   playerTwoSelection: { value: '1' },
   selectedOption: { value: 'won' },
-  prop:  'testing',
+  prop: 'testing',
   count: 3
 },
 {
@@ -28,7 +28,7 @@ const data = [{
   playerTwoSelection: { value: '2' },
   playerThreeSelection: { value: 'too' },
   selectedOption: { value: 'tu' },
-  prop:  'testing',
+  prop: 'testing',
   count: 3
 }]
 
@@ -36,12 +36,12 @@ const data = [{
 describe('<BetList />', () => {
   it('should display', () => {
     //check the render with the test array data 
-    render(<BetList bet = {data}/>)
-    
+    render(<BetList bet={data} />)
+
   })
   //create a snapshot
   it('matches snapshot', () => {
-    const tree = renderer.create(<BetList bet = {data}/>); // generates a DOM tree
+    const tree = renderer.create(<BetList bet={data} />); // generates a DOM tree
 
     // snapshots are a JSON representation of the DOM tree
     expect(tree.toJSON()).toMatchSnapshot();

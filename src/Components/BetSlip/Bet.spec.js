@@ -11,7 +11,7 @@ const data = [{
   playerCount: 1,
   playerSelectedOption: { value: 'zero' },
   selectedOption: { value: '0' },
-  prop:  'testing',
+  prop: 'testing',
   count: 3
 },
 {
@@ -19,7 +19,7 @@ const data = [{
   playerOneSelection: { value: 'one' },
   playerTwoSelection: { value: '1' },
   selectedOption: { value: 'won' },
-  prop:  'testing',
+  prop: 'testing',
   count: 3
 },
 {
@@ -28,7 +28,7 @@ const data = [{
   playerTwoSelection: { value: '2' },
   playerThreeSelection: { value: 'too' },
   selectedOption: { value: 'tu' },
-  prop:  'testing',
+  prop: 'testing',
   count: 3
 },
 {
@@ -37,7 +37,7 @@ const data = [{
   playerOneSelection: { value: 'test' },
   playerTwoSelection: { value: 'test' },
   playerThreeSelection: { value: 'test' },
-  prop:  'testing',
+  prop: 'testing',
   count: 3
 }]
 
@@ -45,13 +45,13 @@ const data = [{
 describe('<Bet />', () => {
   it('should display', () => {
     //check the render with test data 
-    render(<BET bet = {data[0]} />)
-    
+    render(<BET bet={data[0]} />)
+
   })
 
   //create a snapshot
   it('matches snapshot', () => {
-    const tree = renderer.create(<BET  bet = {data[0]}/>); // generates a DOM tree
+    const tree = renderer.create(<BET bet={data[0]} />); // generates a DOM tree
 
     // snapshots are a JSON representation of the DOM tree
     expect(tree.toJSON()).toMatchSnapshot();
@@ -62,7 +62,7 @@ describe('<Bet />', () => {
     //check if data is displayed properly
     it('displays data consistent with first if statement', () => {
       //set render as getByText
-      const { getByText } = render(<BET bet = { data[0] } />);
+      const { getByText } = render(<BET bet={data[0]} />);
       expect(getByText(/testing/i))
       expect(getByText(/zero/i))
     })
@@ -71,7 +71,7 @@ describe('<Bet />', () => {
       //create a spy
       let spy = jest.fn()
       //render the component with a spy
-      const { getByText } = render(<BET bet = {data[0]} delete = { spy }/>);
+      const { getByText } = render(<BET bet={data[0]} delete={spy} />);
       //grab the button 
       const button = getByText(/x/i)
       //fire the button 
@@ -86,7 +86,7 @@ describe('<Bet />', () => {
     //check if data is displayed properly
     it('displays data consistent with second if statement', () => {
       //set render as getByText
-      const { getByText } = render(<BET bet = { data[1] } />);
+      const { getByText } = render(<BET bet={data[1]} />);
       expect(getByText(/won/i))
       expect(getByText(/one/i))
     })
@@ -95,7 +95,7 @@ describe('<Bet />', () => {
       //create a spy
       let spy = jest.fn()
       //render the component with a spy
-      const { getByText } = render(<BET bet = {data[1]} delete = { spy }/>);
+      const { getByText } = render(<BET bet={data[1]} delete={spy} />);
       //grab the button 
       const button = getByText(/x/i)
       //fire the button 
@@ -110,7 +110,7 @@ describe('<Bet />', () => {
     //check if data is displayed properly
     it('displays data consistent with first if statement', () => {
       //set render as getByText
-      const { getByText } = render(<BET bet = { data[2] } />);
+      const { getByText } = render(<BET bet={data[2]} />);
       expect(getByText(/tu/i))
       expect(getByText(/two/i))
     })
@@ -119,7 +119,7 @@ describe('<Bet />', () => {
       //create a spy
       let spy = jest.fn()
       //render the component with a spy
-      const { getByText } = render(<BET bet = {data[2]} delete = { spy }/>);
+      const { getByText } = render(<BET bet={data[2]} delete={spy} />);
       //grab the button 
       const button = getByText(/x/i)
       //fire the button 
@@ -127,6 +127,6 @@ describe('<Bet />', () => {
       //check if it was called when 'X' is pressed
       expect(spy).toBeCalled()
     })
-  })   
+  })
 
 })
