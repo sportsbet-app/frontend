@@ -108,8 +108,8 @@ function App() {
 
         {/* <CardContainer /> */}
         <TopContent>
-          <div><Favorites /></div>
-          <div id='wrap' className='wrapper'><BetSlip /></div>
+          <Favorites />
+          <BetSlip />
         </TopContent>
         <PageContent sport={sport} />
         <Footer />

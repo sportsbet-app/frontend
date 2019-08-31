@@ -24,7 +24,7 @@ const PropBets = props => {
             <View
                 active={type === 1} left
                 onClick={() => setType(1)}
-            >Build Your Bet <i
+            >Build Your Prop Bet <i
                 style={{ cursor: 'help' }}
                 onMouseOver={() => setShow(true)}
                 onMouseOut={() => setShow(false)}

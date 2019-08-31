@@ -2,7 +2,7 @@
 
 exports[`<UGameCard /> matches snapshot 1`] = `
 <div
-  className="sc-bdVaJa mHSoQ"
+  className="sc-bdVaJa anjUL"
 >
   <div
     className="sc-bwzfXH fKkCEQ"
@@ -17,7 +17,7 @@ exports[`<UGameCard /> matches snapshot 1`] = `
         VERSUS
       </h3>
       <h3>
-        1567266455516
+        1567267574871
          | 
         3pm eastern
       </h3>

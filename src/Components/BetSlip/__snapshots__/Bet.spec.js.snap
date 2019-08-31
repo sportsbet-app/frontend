@@ -2,12 +2,10 @@
 
 exports[`<Bet /> matches snapshot 1`] = `
 <div>
-  //price value of the selected player
   <h1>
      Player : 
     zero
   </h1>
-  //run down of the information for the bet. (type of bet, the bet number and the players value )
   <p>
      
     testing
@@ -16,7 +14,6 @@ exports[`<Bet /> matches snapshot 1`] = `
       
     0
   </p>
-  //button to cancel the selected bet
   <button
     onClick={[Function]}
     style={
