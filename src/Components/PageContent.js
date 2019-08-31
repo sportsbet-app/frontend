@@ -1,22 +1,12 @@
 import React, { useState } from 'react';
 import PropBets from './PropBets/PropBets'
-import BetSlip from './BetSlip/BetSlip'
-
 import styled from 'styled-components'
+
 import { colors, buttonSize } from '../Theme/Variables'
-
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faSearch } from '@fortawesome/free-solid-svg-icons'
-
-import { Link, Route } from "react-router-dom";
-import './PageContent.css';
 import NFLTeam from './Sports/MainComp/NFLTeam';
 import NFLPlayers from './Sports/MainComp/NFLPlayers';
 import NFLMisc from './Sports/MainComp/NFLMisc';
-import Favorites from './Favorites/Favorites'
-
-
-// const search = <FontAwesomeIcon icon={faSearch} />
+import './PageContent.css';
 
 const PageContentContainer = styled.div`
   max-width: 1500px;
@@ -28,13 +18,6 @@ const PageContentContainer = styled.div`
   justify-content: space-around;
 `
 
-const Sidebar = styled.div`
-  background: #fff;
-  padding: 3rem 1rem;
-  display:flex;
-  border: 2px solid magenta;
-  margin: 0 .5rem;
-`
 const Content = styled.div`
   background: ${colors.secondary};
   padding: 0 0 1.4rem 0;
@@ -43,7 +26,7 @@ const Content = styled.div`
   flex-grow: 2;
   max-width: 65%;
   max-height: 800px;
-  overflow: scroll;
+  overflow-y: scroll;
 `
 
 const BetBuilder = styled.div`
