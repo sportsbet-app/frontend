@@ -5,10 +5,10 @@ exports[`<CardContainer /> matches snapshot 1`] = `
   className="sc-jzJRlG bgPJAT"
 >
   <div
-    className="sc-cSHVUG feWfX"
+    className="sc-cSHVUG jAnVpe"
   >
     <div
-      className="sc-kAzzGY ithIdY"
+      className="sc-kAzzGY iOhABo"
     >
       <h2>
         Quick Bets - NFL

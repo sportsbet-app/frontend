@@ -6,10 +6,15 @@ import { colors, buttonSize, breakpoints } from '../../Theme/Variables'
 
 
 const Card = styled.div`
-  width: 28%;
-  background-image: url(${nflColorImg});
-  background-size: cover;
-  margin-bottom: 40px;
+    width: 28%;
+    ${'' /* background-image: url(${nflColorImg}); */}
+    background: #f5f5f5;
+    background-size: cover;
+    margin-bottom: 40px;
+
+    @media (max-width: ${breakpoints.tablet}) {
+        width: 90%;
+    }
 `
 
 const CardHeader = styled.div`
