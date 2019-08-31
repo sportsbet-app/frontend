@@ -9,31 +9,50 @@ import { colors, buttonSize } from '../../Theme/Variables'
 import { favorite } from '../../Actions'
 
 const FavoritesContainer = styled.div`
-    width: 57%;
-    padding: .5rem .5rem;
-    margin: 0 auto;
-    margin-top: 40px;
-    margin-bottom: 30px;
+    width: 100%;
+    background: #f5f5f5;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: scroll;
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    
+    p {
+        font-size: 1.4rem;
+    }
+`
+
+const Container = styled.div`
+    width: 100%;
+    margin: 30px 25px 0px;
     background: #f5f5f5;
     border: 1px solid #ededed;
     color: #fff;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    overflow: hidden;
+`
 
-    h2 {
-        color: ${colors.primary};
-        width: 100%;
-        padding-left: .75rem;
-    }
-    p {
-        font-size: 1.4rem;
-    }
+const PinnedGames = styled.h2`
+    color: ${colors.primary};
+    width: 100%;
+    padding: .75rem 1.25rem;
+    margin: 0px;
+    font-size: 1rem;
+    height: max-content;
+    width: max-content;
+    background: ${colors.secondary}
 `
 
 const FavoriteItem = styled.div`
     display: flex;
     margin: 1.2rem;
     border: 1px solid #ededed;
+    width: max-content;
 
     :hover {
         cursor: pointer;
@@ -41,6 +60,13 @@ const FavoriteItem = styled.div`
         transition-timing-function: ease-in-out;
         transition: 0.4s; 
     }
+`
+
+const Wrapper = styled.div`
+    display: flex;
+    margin: 1.2rem;
+    background: whitesmoke;
+    width: max-content;
 `
 
 const StarContainer = styled.div`
@@ -55,9 +81,9 @@ const GameItem = styled.div`
     background: #fff;
     color: ${colors.secondary};
     font-size: 1.4rem;
-    padding: .5rem .5rem;
+    padding: .5rem 1.5rem;
     text-align: center;
-    min-width: 220px;
+    min-width: max-content;
 `
 const Team1 = styled.div`
     font-weight: bold;
@@ -75,22 +101,25 @@ const pin = <FontAwesomeIcon icon={faThumbtack} />
 
 const Favorites = props => {
 
-    if (!props.favoriteList.length) return (
-        // <FavoritesContainer>
-        //     <p>You don't have any favorites selected yet. Please click that badass star that Brandi made to make  a team be a favorite of yours.</p>
-        // </FavoritesContainer>
-        <></>
-    )
+    if (!props.favoriteList.length) return <Container>
+        <PinnedGames>{pin} My Pinned Games</PinnedGames>
+        <FavoritesContainer>
+        </FavoritesContainer>
+    </Container>
 
     return (
-        <FavoritesContainer>
-            <h2>{pin} My Pinned Games</h2>
-            {props.favoriteList.length && props.favoriteList.map(fav => <Favorite
-                key={fav.first.idTeam}
-                pair={fav}
-                favorite={props.favorite}
-            />)}
-        </FavoritesContainer>
+        <Container>
+            <PinnedGames>{pin} My Pinned Games</PinnedGames>
+            <FavoritesContainer>
+                <Wrapper>
+                    {props.favoriteList.length && props.favoriteList.map(fav => <Favorite
+                        key={fav.first.idTeam}
+                        pair={fav}
+                        favorite={props.favorite}
+                    />)}
+                </Wrapper>
+            </FavoritesContainer>
+        </Container>
     )
 }
 

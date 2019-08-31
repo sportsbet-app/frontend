@@ -48,7 +48,7 @@ const Content = styled.div`
 
 const BetBuilder = styled.div`
   background: #fff;
-  padding: 3rem 1rem;
+  padding: 1.7rem 1rem;
   display:flex;
   justify-content: center;
 `
@@ -106,7 +106,6 @@ const PageContent = (props) => {
         </ButtonContainer>
 
         <Teams>
-
           {(() => {
             switch (type) {
               case 1:
@@ -120,13 +119,17 @@ const PageContent = (props) => {
             }
           })()}
         </Teams>
+
       </Content>
+
       <BetBuilder>
         <PropBets />
       </BetBuilder>
+
     </PageContentContainer>
 
   )
+
 }
 
 export default PageContent
