@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UGameCard /> matches snapshot 1`] = `
+<div
+  className="sc-bdVaJa mHSoQ"
+>
+  <div
+    className="sc-bwzfXH iHzvdY"
+  >
+    <img
+      alt="undefined"
+      className="sc-bxivhb grZmpA"
+      title="undefined"
+    />
+    <div>
+      <h3>
+        VERSUS
+      </h3>
+      <h3>
+        1567155117435
+         | 
+        3pm eastern
+      </h3>
+    </div>
+    <img
+      alt="undefined"
+      className="sc-bxivhb grZmpA"
+      title="undefined"
+    />
+  </div>
+  <div
+    className="sc-htpNat hitxPo"
+  >
+    <div
+      className="cardContentRow"
+    >
+      <button
+        className="sc-ifAKCX bVBizH"
+      >
+        +211
+      </button>
+      <button
+        className="sc-ifAKCX bVBizH"
+      >
+        +211
+      </button>
+      <button
+        className="sc-ifAKCX bVBizH"
+      >
+        +211
+      </button>
+    </div>
+    <div
+      className="cardContentRow"
+    >
+      <button
+        className="sc-ifAKCX bVBizH"
+      >
+        +211
+      </button>
+      <button
+        className="sc-ifAKCX bVBizH"
+      >
+        +211
+      </button>
+      <button
+        className="sc-ifAKCX bVBizH"
+      >
+        +211
+      </button>
+    </div>
+  </div>
+</div>
+`;

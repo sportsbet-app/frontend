@@ -90,8 +90,8 @@ const HeadToHead = props => {
 
       <Flex spaceAJ>
         <StyledButton
-          primary active={!selectedOption && !playerOneSelection && !playerTwoSelection}
-          onClick={clearOptions}>Clear</StyledButton>
+            primary active={!selectedOption && !playerOneSelection && !playerTwoSelection}
+            onClick={clearOptions}>Clear</StyledButton>
         <StyledButton
           primary active={!selectedOption || !playerOneSelection || !playerTwoSelection}
           disabled={!selectedOption || !playerOneSelection || !playerTwoSelection}

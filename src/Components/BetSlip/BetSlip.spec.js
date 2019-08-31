@@ -1,7 +1,6 @@
 import React from 'react'
 //import dependencies for tests
 import { render } from '@testing-library/react'
-import { shallow } from 'enzyme'
 import { Provider } from 'react-redux'
 //import renderer for snapshot
 import renderer from 'react-test-renderer'
@@ -39,9 +38,17 @@ const data = [{
   playerOneSelection: { value: 'test' },
   playerTwoSelection: { value: 'test' },
   playerThreeSelection: { value: 'test' },
+  selectedOption: {value: 'test' },
   prop:  'testing',
   count: 3
 }]
+
+const store = {
+  getState: jest.fn(),
+  subscribe: jest.fn(),
+  dispatch: jest.fn(),
+
+}
 
 const empty = []
 
@@ -49,13 +56,13 @@ const empty = []
 describe('<BetSlip />', () => {
   it('should display', () => {
     //render with test data
-    render(<Provider store = {data[0]} ><BetSlip confirmedBets = { data } /></Provider>)
+    render(<Provider store = { store } ><BetSlip confirmedBets = { data } /></Provider>)
     
   })
 
   //create a snapshot
   it('matches snapshot', () => {
-    const tree = renderer.create(<BetSlip confirmedBets = { data } />); // generates a DOM tree
+    const tree = renderer.create(<Provider store = { store }><BetSlip confirmedBets = { data } /></Provider>); // generates a DOM tree
 
     // snapshots are a JSON representation of the DOM tree
     expect(tree.toJSON()).toMatchSnapshot();
@@ -65,8 +72,16 @@ describe('<BetSlip />', () => {
   it('returns place a bet sentence', () => {
     const spy = jest.fn()
     //create a get by text render 
-    const { getByText } = render(<BetSlip confirmedBets = {empty} delete = {spy} />);
+    const { getByText } = render(<Provider store = { store }><BetSlip confirmedBets = { empty } delete = { spy } /></Provider>);
     //check that the alternate text displays when no data is found
     expect(getByText(/Please/i))
+  })
+
+  //displays the correct information
+  it('returns the proper data', () => {
+    //create a get by text render 
+    const { getByText } = render(<Provider store = { store }><BetSlip confirmedBets = { data } /></Provider>);
+    //check if the data is correct
+    expect(getByText(/zero/i))
   })
 })
