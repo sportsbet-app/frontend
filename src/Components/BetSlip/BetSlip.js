@@ -18,7 +18,11 @@ const BetSlip = (props) => {
   return (
     <Flex column>
       <BetList bet={props.confirmedBets} delete={props.deleteBet} />
-      {props.confirmedBets.length === 0 ? <p> Please Place Bet </p> : <QrCode bet={props.confirmedBets} />}
+      {props.confirmedBets.length === 0 ?
+        <p> Please Place Bet </p> :
+        (<></>)
+      }
+      {/* <QrCode bet={props.confirmedBets} /> */}
     </Flex>
   )
 }

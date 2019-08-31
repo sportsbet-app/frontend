@@ -43,12 +43,13 @@ const Content = styled.div`
   flex-grow: 2;
   max-width: 65%;
   max-height: 800px;
-  overflow: scroll;
+  overflow-y: scroll;
+ 
 `
 
 const BetBuilder = styled.div`
   background: #fff;
-  padding: 3rem 1rem;
+  padding: 1.7rem 1rem;
   display:flex;
   justify-content: center;
 `
@@ -106,7 +107,6 @@ const PageContent = (props) => {
         </ButtonContainer>
 
         <Teams>
-
           {(() => {
             switch (type) {
               case 1:
@@ -120,13 +120,17 @@ const PageContent = (props) => {
             }
           })()}
         </Teams>
+
       </Content>
+
       <BetBuilder>
         <PropBets />
       </BetBuilder>
+
     </PageContentContainer>
 
   )
+
 }
 
 export default PageContent

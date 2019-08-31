@@ -68,18 +68,24 @@ const NavRow = styled.div`
 `
 
 const TopContent = styled.div`
-width: 98%;
+width: 100%;
+height: 200px;
 display: flex;
 justify-content: space-around;
 `
 
 function App() {
+
   const [sport, setSport] = useState('nfl')
+
   return (
+
     <div style={{ overflow: 'auto' }}>
 
       <SideBar />
+
       <PageContainer>
+
         <GlobalStyle />
 
         <NavContainer>
@@ -91,6 +97,7 @@ function App() {
           </NavRow>
 
           <NavLinks>
+
             <NavRow activeStyle={{ textDecoration: 'underline' }}>
               <Link to='/nfl' onClick={() => setSport('nfl')}>NFL</Link>
               <Link to='/mlb' onClick={() => setSport('mlb')}>MLB</Link>
@@ -102,20 +109,26 @@ function App() {
             <NavRow>
               <NavBar />
             </NavRow>
+
           </NavLinks>
 
         </NavContainer>
 
         {/* <CardContainer /> */}
+
         <TopContent>
           <Favorites />
-          <BetSlip />
         </TopContent>
+
         <PageContent sport={sport} />
         <Footer />
+
       </PageContainer>
+
     </div>
+
   )
+
 }
 
 export default App

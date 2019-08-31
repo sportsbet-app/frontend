@@ -9,7 +9,7 @@ export default function QrCode(props) {
   const value = (JSON.stringify(bet))
   return (
     <div data-testid='container'>
-      <QR value={bet && value} renderAs={'svg'} level={'L'} />
+      <QR value={bet && value} renderAs={'svg'} level={'S'} />
     </div>
   )
 }

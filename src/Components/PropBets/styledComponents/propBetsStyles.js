@@ -43,7 +43,7 @@ const PropBetsContainer = styled.div`
     cursor: default;
     min-width: 420px;
     align-self: flex-start;
-    margin-top: -32.5px;
+    margin-top: ${props => props.bottom ? '0px' : '-32.5px'};
 `
 
 const PropBetsHeader = styled.div`
@@ -56,6 +56,7 @@ const PropBetsHeader = styled.div`
     ${'' /* border-radius: 5px; */}
     width: 100%;
     font-size: 1.5rem;
+    margin-bottom: 25px;
 `
 
 const Flex = styled.div`
@@ -98,14 +99,9 @@ const Flex = styled.div`
 
 const View = styled.span`
     background: ${props => props.active ? colors.darkGrey : colors.secondary};
-    cursor: ${props => props.active ? 'default' : 'pointer'};
     padding: 10px 20px;
-    width: 50%;
+    width: 100%;
     text-align: ${props => props.left ? 'left' : 'right'};
-
-    &:hover {
-        background: ${props => !props.active && colors.primary};
-    }
 `
 
 export {
