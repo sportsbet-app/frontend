@@ -11,18 +11,21 @@ import { favorite } from '../../Actions'
 const FavoritesContainer = styled.div`
     width: 100%;
     background: #f5f5f5;
-    color: #fff;
     display: flex;
     flex-direction: column;
     justify-content: center;
     overflow: scroll;
+    height: 100%;
 
     ::-webkit-scrollbar {
         display: none;
     }
-    
+
     p {
-        font-size: 1.4rem;
+        font-size: 1.5rem;
+        color: ${colors.darkGrey};
+        align-self: center;
+        text-decoration: underline;
     }
 `
 
@@ -31,7 +34,6 @@ const Container = styled.div`
     margin: 30px 25px 0px;
     background: #f5f5f5;
     border: 1px solid #ededed;
-    color: #fff;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -42,7 +44,7 @@ const PinnedGames = styled.h2`
     width: 100%;
     padding: .75rem 1.25rem;
     margin: 0px;
-    font-size: 1rem;
+    font-size: 1.25rem;
     height: max-content;
     width: max-content;
     background: ${colors.secondary}
@@ -70,11 +72,11 @@ const Wrapper = styled.div`
 `
 
 const StarContainer = styled.div`
-color: ${props => props.liked ? colors.primary : "#bdbdbd"};
-background: ${colors.darkGrey};
-display: flex;
-align-items: center;
-padding: .5rem;
+    color: ${props => props.liked ? colors.primary : "#bdbdbd"};
+    background: ${colors.darkGrey};
+    display: flex;
+    align-items: center;
+    padding: .5rem;
 `
 
 const GameItem = styled.div`
@@ -89,14 +91,13 @@ const Team1 = styled.div`
     font-weight: bold;
 `
 const Team2 = styled.div`
- font-weight: bold;
+    font-weight: bold;
 `
 const Vs = styled.div`
     font-size: .8rem;
     padding: .25rem 0;
 `
 
-const star = <FontAwesomeIcon icon={faStar} />
 const pin = <FontAwesomeIcon icon={faThumbtack} />
 
 const Favorites = props => {
@@ -104,23 +105,23 @@ const Favorites = props => {
     if (!props.favoriteList.length) return <Container>
         <PinnedGames>{pin} My Pinned Games</PinnedGames>
         <FavoritesContainer>
+            <p>Pin a team or player to have them display.</p>
         </FavoritesContainer>
     </Container>
 
-    return (
-        <Container>
-            <PinnedGames>{pin} My Pinned Games</PinnedGames>
-            <FavoritesContainer>
-                <Wrapper>
-                    {props.favoriteList.length && props.favoriteList.map(fav => <Favorite
-                        key={fav.first.idTeam}
-                        pair={fav}
-                        favorite={props.favorite}
-                    />)}
-                </Wrapper>
-            </FavoritesContainer>
-        </Container>
-    )
+    return <Container>
+        <PinnedGames>{pin} My Pinned Games</PinnedGames>
+        <FavoritesContainer>
+            <Wrapper>
+                {props.favoriteList.map(fav => <Favorite
+                    key={fav.first.idTeam}
+                    pair={fav}
+                    favorite={props.favorite}
+                />)}
+            </Wrapper>
+        </FavoritesContainer>
+    </Container>
+
 }
 
 function Favorite(props) {
