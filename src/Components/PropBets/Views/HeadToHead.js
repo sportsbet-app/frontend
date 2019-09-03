@@ -7,7 +7,7 @@ import { faUser, faChartLine, faSyncAlt } from '@fortawesome/free-solid-svg-icon
 import { statOptions, playerOptions, statTypeOption } from '../../../Assets/DummyData'
 import { StyledButton, Descriptor, Flex, CountDisplay } from '../styledComponents'
 
-//collecting props from Prop form for this functional component
+//collecting props from PropForm for this functional component
 const HeadToHead = props => {
   //setup state variables  
   const [count, setCount] = useState(0)

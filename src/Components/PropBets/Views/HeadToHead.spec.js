@@ -1,111 +1,51 @@
-//import hooks and react dependencies
-import React, { useState } from 'react'
-import Select from 'react-select'
-//import styling and assets
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser, faChartLine, faSyncAlt } from '@fortawesome/free-solid-svg-icons'
-import { statOptions, playerOptions, statTypeOption } from '../../../Assets/DummyData'
-import { StyledButton, Descriptor, Flex, CountDisplay } from '../styledComponents'
+import React from 'react'
+//import dependencies for tests
+import { render, fireEvent, act } from '@testing-library/react'
 
-//collecting props from Prop form for this functional component
-const HeadToHead = props => {
-  //setup state variables  
-  const [count, setCount] = useState(0)
-  const [statType, setStatType] = useState(statTypeOption[0])
-  const [selectedOption, setSelectedOption] = useState(null)
-  const [playerOneSelection, setPlayerOneSelection] = useState(null)
-  const [playerTwoSelection, setPlayerTwoSelection] = useState(null)
+//import renderer for snapshot
+import renderer from 'react-test-renderer'
+//import component
+import HeadToHead from './HeadToHead'
 
-  //function to reset state
-  const clearOptions = _ => {
-    setCount(0)
-    setSelectedOption(null)
-    setPlayerOneSelection(null)
-    setPlayerTwoSelection(null)
-  }
-  //find the item with an id of wrap and toggle the class if there is no class on the htmlelement that is calling this function
-  const displayBetSlip = () => {
-    const container = document.getElementById('wrap')
-    if (container.className.length !== 0) {
-      container.classList.toggle('wrapper')
-    }
-  }
-  //variables to take in icon images for styling
-  const rotate = <FontAwesomeIcon icon={faSyncAlt} />
-  const player = <FontAwesomeIcon icon={faUser} />
-  const stat = <FontAwesomeIcon icon={faChartLine} />
-
-  return (
-    <>
-      <Flex column>
-        <Select
-          className='ninety'
-          placeholder={player}
-          value={playerOneSelection}
-          onChange={(sel) => setPlayerOneSelection(sel)}
-          options={props.players}
-          isSearchable={true}
-        />
-
-        <Flex >
-          <i style={{ marginRight: '2rem' }} onClick={() => {
-            setPlayerOneSelection(playerTwoSelection)
-            setPlayerTwoSelection(playerOneSelection)
-
-          }}>{rotate}</i>
-          <Descriptor>Will have more than</Descriptor>
-        </Flex>
-
-        <Select
-          className='ninety'
-          placeholder={player}
-          value={playerTwoSelection}
-          onChange={(sel) => setPlayerTwoSelection(sel)}
-          options={props.players}
-          isSearchable={true}
-        />
-      </Flex>
-
-      <Flex>
-        <Select
-          className='ninety'
-          placeholder={stat}
-          value={selectedOption}
-          onChange={(sel) => setSelectedOption(sel)}
-          options={statOptions}
-          isSearchable={true}
-        />
-      </Flex>
-
-      <CountDisplay>
-        <p>{count}</p>
-        <Select
-          value={statType}
-          onChange={(sel) => setStatType(sel)}
-          options={statTypeOption}
-          isSearchable={true}
-
-        />
-      </CountDisplay>
-
-      <Flex spaceAJ>
-        <StyledButton
-            primary active={!selectedOption && !playerOneSelection && !playerTwoSelection}
-            onClick={clearOptions}>Clear</StyledButton>
-        <StyledButton
-          primary active={!selectedOption || !playerOneSelection || !playerTwoSelection}
-          disabled={!selectedOption || !playerOneSelection || !playerTwoSelection}
-          onClick={() => {
-            props.setBetSlip({
-              count, selectedOption, playerOneSelection, playerTwoSelection,
-              playerCount: 2
-            })
-            clearOptions()
-            displayBetSlip()
-          }}>Send To Betslip</StyledButton>
-      </Flex>
-    </>
-  )
+//create test data to use 
+const dataPlayer = { 
+  players: 'test',
+  playerOneSelection: 'test number 1',
+  playerTwoSelection: 'test number 2',
 }
 
-export default HeadToHead
+const dataBet = {
+
+}
+
+//test to check that the app will display when called.
+describe('<HeadToHead />', () => {
+  it('should display', () => {
+    //render the component
+    render(<HeadToHead players = { dataPlayer } setBetSlip = { dataBet } />)
+    
+  })
+  //create a snapshot
+  it('matches snapshot', () => {
+    const tree = renderer.create(<HeadToHead players = { dataPlayer } setBetSlip = { dataBet }/>); // generates a DOM tree
+
+    // snapshots are a JSON representation of the DOM tree
+    expect(tree.toJSON()).toMatchSnapshot();
+  });
+  //check if the click works 
+  //figure out whats being displayed as the onclick
+  // it('clicks properly', () => {
+  //   // setup render for the page
+  //   const { getByText, findByAltText } = render(<HeadToHead players = { dataPlayer } setBetSlip = { dataBet } playerOneSelection = { dataPlayer.playerOneSelection }/>)
+  //   //grab the item being clicked
+  //   const click = getByText(/test/i)
+  //   //call the function being clicked using act
+  //   act( () => {
+  //     fireEvent.click(click)
+  //   })
+  //   //create a variable for the find all to grab the first item
+  //   const flip = findByAltText(/test/i)[0].toString()
+  //   //check that variable is the player two selection
+  //   expect(flip).toBe('test number 2')
+  // })
+})
